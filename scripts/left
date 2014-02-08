@@ -1,0 +1,14 @@
+#!/bin/bash 
+
+pushd "`dirname $0`/../3rdparty" > /dev/null 
+
+./maestro-set-target.sh /dev/ttyACM0 0 6000
+./maestro-set-target.sh /dev/ttyACM0 0 -6000
+
+sleep 2s
+
+./maestro-set-target.sh /dev/ttyACM0 0 0
+./maestro-set-target.sh /dev/ttyACM0 0 0
+
+popd > /dev/null 
+
