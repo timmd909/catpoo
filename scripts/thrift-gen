@@ -1,16 +1,26 @@
 #!/bin/bash 
 
-pushd "`dirname \"$0\"`" > /dev/null 
+# -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- 
+
+pushd "`dirname \"$0\"`/.." > /dev/null 
 
 OUTPUT_DIR="$PWD/server/thrift"
+THRIFT_DIR="$PWD/include/thrift"
 rm -rf "$OUTPUT_DIR"
 mkdir "$OUTPUT_DIR"
 
 popd > /dev/null 
 
+# -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- 
 
-pushd "`dirname \"$0\"`/server" > /dev/null
+pushd "$THRIFT_DIR" > /dev/null
 
-
+for X in *.thrift; do 	
+	echo -en "\033[34;1mCreating \033[33;1m$X\033[34;1m..."
+	thrift --gen cpp -out "$OUTPUT_DIR" "$X"
+	echo -e " \033[32;1mdone\033[0m"
+done 
 
 popd > /dev/null
+
+# -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- 
