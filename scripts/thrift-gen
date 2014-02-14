@@ -1,0 +1,16 @@
+#!/bin/bash 
+
+pushd "`dirname \"$0\"`" > /dev/null 
+
+OUTPUT_DIR="$PWD/server/thrift"
+rm -rf "$OUTPUT_DIR"
+mkdir "$OUTPUT_DIR"
+
+popd > /dev/null 
+
+
+pushd "`dirname \"$0\"`/server" > /dev/null
+
+
+
+popd > /dev/null
