@@ -4,11 +4,11 @@
 	DocumentRoot /home/pi/catpoo/www/web
 	<Directory />
 		Options FollowSymLinks
-		AllowOverride None
+		AllowOverride All
 	</Directory>
 	<Directory /var/www/>
 		Options Indexes FollowSymLinks MultiViews
-		AllowOverride None
+		AllowOverride All
 		Order allow,deny
 		allow from all
 	</Directory>
