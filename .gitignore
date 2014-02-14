@@ -1,3 +1,7 @@
 /config/apache2.conf
 /config/catpoo-site
+/config/php.ini
 
+/erlide.log*
+/.metadata
+rpc_monitor-*
