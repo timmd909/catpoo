@@ -3,3 +3,6 @@
 	url = https://github.com/apache/thrift.git
 	ignore = dirty
 
+[submodule "3rdparty/thrift"]
+	path = 3rdparty/thrift
+	url = https://github.com/apache/thrift.git
