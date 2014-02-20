@@ -1,10 +1,10 @@
-CXXFLAGS =	-O2 -g -Wall -fmessage-length=0
+CXXFLAGS = -O2 -g -Wall -fmessage-length=0
 
-OBJS =		server.o
+OBJS = server.o
 
-LIBS =
+LIBS = -lthrift
 
-TARGET =	server
+TARGET = server
 
 $(TARGET):	$(OBJS)
 	$(CXX) -o $(TARGET) $(OBJS) $(LIBS)
