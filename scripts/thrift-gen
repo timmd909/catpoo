@@ -1,4 +1,11 @@
 #!/bin/bash 
+#============================================================================
+# Name        : thrift-gen
+# Author      : Tim Doerzbacher <tim@tim-doerzbacher.com>
+# Version     : nunyabidness
+# Copyright   : See LICENSE
+# Description : CATPOO Thrift Server
+# ============================================================================
 
 # -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- 
 

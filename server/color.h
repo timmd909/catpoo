@@ -1,5 +1,5 @@
 //============================================================================
-// Name        : server.cpp
+// Name        : color.h
 // Author      : Tim Doerzbacher <tim@tim-doerzbacher.com>
 // Version     : nunyabidness
 // Copyright   : See LICENSE
