@@ -1,0 +1,8 @@
+timmd909_cat_poo_homepage:
+  pattern:  /hello/{name}
+  defaults: { _controller: timmd909CatPooBundle:Default:index }
+
+
+timmd909_cat_video_frame:
+  pattern: /video/{which}
+  defaults: { _controller: timmd909CatPooBundle:Default:video_frame }
