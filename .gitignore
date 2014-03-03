@@ -19,3 +19,5 @@ rpc_monitor-*
 /vision/stamp-h1
 /vision/autom4te.cache
 /vision/Makefile.in
+
+vision/configure
