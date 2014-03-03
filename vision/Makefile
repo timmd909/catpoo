@@ -10,7 +10,7 @@ TARGET = vision
 
 $(TARGET):	$(OBJS)
 	$(CXX) -o $(TARGET) $(OBJS) $(LIBS)
-
+	
 all:	$(TARGET)
 
 clean:
