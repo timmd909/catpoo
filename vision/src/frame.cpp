@@ -16,11 +16,12 @@
 #include "colors.h"
 #include "vision.h"
 
+#include "common_types.h"
+
 using namespace std;
 using namespace cv;
 
-namespace CATPOO
-{
+namespace CATPOO {
 
 	void captureFrame(int videoChannel)
 	{
@@ -29,15 +30,18 @@ namespace CATPOO
 
 		cap = VideoCapture(videoChannel);
 		if (!cap.isOpened()) {
-			throw 1; /// <@todo Make a custom Thrift class for this
+			CatPooServerException e = CatPooServerException();
+			e.details = "Couldn't open video";
+			throw e;
 		}
 		cap.set(CV_CAP_PROP_FRAME_WIDTH,  CATPOO::FRAME_WIDTH);
 		cap.set(CV_CAP_PROP_FRAME_HEIGHT, CATPOO::FRAME_HEIGHT);
 
 		cap >> frame;
 
-		cout << colors::WHITE << "Grabbing frame " << colors::BLUE << frame.cols << colors::GREEN
-				<< "x" << colors::BLUE << frame.rows << colors::RESET << " ";
+		cout << colors::WHITE << "Grabbing frame " << colors::BLUE
+				<< frame.cols << colors::GREEN << "x" << colors::BLUE
+				<< frame.rows << colors::RESET << " ";
 
 		// encode frame
 		vector<uchar> jpegFrame;
@@ -48,13 +52,11 @@ namespace CATPOO
 		// for now, we'll just dump the data to a file
 		ofstream ofs("/tmp/frame.jpeg", std::ofstream::out);
 		ofs.write((const char*)jpegFrame.data(), jpegFrame.size());
-		//ofs << "Hello";
 		ofs.close();
 
 		// clean up and return
 		cout << endl;
 		return;
 	}
-
 
 }
