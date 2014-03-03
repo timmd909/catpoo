@@ -5,7 +5,11 @@
 /erlide.log*
 /.metadata
 rpc_monitor-*
+
 /vision/*.o
 /vision/.cproject
 /vision/server
+
+/vision/thrift/*.cpp
+/vision/thrift/*.h
 
