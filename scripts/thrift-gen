@@ -11,10 +11,13 @@
 
 pushd "`dirname \"$0\"`/.." > /dev/null 
 
-OUTPUT_DIR="$PWD/server/thrift"
 THRIFT_DIR="$PWD/include/thrift"
-rm -rf "$OUTPUT_DIR"
-mkdir "$OUTPUT_DIR"
+
+function prepare_output_dir()
+{
+	rm -rf "$1"
+	mkdir "$1"
+}
 
 popd > /dev/null 
 
@@ -24,7 +27,18 @@ pushd "$THRIFT_DIR" > /dev/null
 
 for X in *.thrift; do 	
 	echo -en "\033[34;1mCreating \033[33;1m$X\033[34;1m..."
+	
+	# -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- 
+	OUTPUT_DIR="../../vision/thrift"
+	prepare_output_dir "$OUTPUT_DIR" 
 	thrift --gen cpp -out "$OUTPUT_DIR" "$X"
+	
+	# -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- 
+	OUTPUT_DIR="../../motion/thrift"
+	prepare_output_dir "$OUTPUT_DIR"
+	thrift --gen erl -out "$OUTPUT_DIR" "$X"
+	
+	# -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- 
 	echo -e " \033[32;1mdone\033[0m"
 done 
 
