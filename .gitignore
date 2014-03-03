@@ -15,3 +15,7 @@ rpc_monitor-*
 
 /motion/thrift/*.beam
 /motion/*.beam
+/vision/depcomp
+/vision/stamp-h1
+/vision/autom4te.cache
+/vision/Makefile.in
