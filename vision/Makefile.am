@@ -1,4 +1,4 @@
-SUBDIRS = src
+SUBDIRS = src thrift
 
 EXTRA_DIST = bootstrap
 

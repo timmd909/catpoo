@@ -8,9 +8,10 @@ erlide.log*
 rpc_monitor-*
 
 
-motion/thrift/*.beam
 motion/*.beam
-
+motion/thrift/*.beam
+motion/thrift/*.hrl
+motion/thrift/*.erl
 
 vision/thrift/*.cpp
 vision/thrift/*.h

@@ -1,6 +1,10 @@
 namespace cpp CATPOO.Motion
 
+// -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- 
+
 include "common.thrift" 
+
+// -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- 
 
 service CatPooMotion {
 

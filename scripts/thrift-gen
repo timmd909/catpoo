@@ -15,8 +15,8 @@ THRIFT_DIR="$PWD/include/thrift"
 
 function prepare_output_dir()
 {
-	rm -rf "$1"
-	mkdir "$1"
+	rm -rf $1/*.cpp $1/*.h 
+	mkdir -p "$1"
 }
 
 popd > /dev/null 
@@ -31,12 +31,12 @@ for X in *.thrift; do
 	# -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- 
 	OUTPUT_DIR="../../vision/thrift"
 	prepare_output_dir "$OUTPUT_DIR" 
-	thrift --gen cpp -out "$OUTPUT_DIR" "$X"
+	thrift -r --strict --gen cpp -out "$OUTPUT_DIR" "$X"
 	
 	# -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- 
 	OUTPUT_DIR="../../motion/thrift"
 	prepare_output_dir "$OUTPUT_DIR"
-	thrift --gen erl -out "$OUTPUT_DIR" "$X"
+	thrift -r --gen erl -out "$OUTPUT_DIR" "$X"
 	
 	# -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- 
 	echo -e " \033[32;1mdone\033[0m"
