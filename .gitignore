@@ -5,7 +5,7 @@
 /erlide.log*
 /.metadata
 rpc_monitor-*
-/server/*.o
-/server/.cproject
-/server/server
+/vision/*.o
+/vision/.cproject
+/vision/server
 
