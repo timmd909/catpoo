@@ -13,3 +13,5 @@ rpc_monitor-*
 /vision/thrift/*.cpp
 /vision/thrift/*.h
 
+/motion/thrift/*.beam
+/motion/*.beam
