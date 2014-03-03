@@ -1,10 +1,12 @@
 CXXFLAGS = -O2 -g -Wall -fmessage-length=0
 
-OBJS = server.o
+OBJS = vision.o frame.o 
 
-LIBS = -lthrift
+LIBS = -lthrift -lopencv_highgui -lopencv_video -lopencv_core -lopencv_imgproc
 
-TARGET = server
+TARGET = vision
+
+# -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- 
 
 $(TARGET):	$(OBJS)
 	$(CXX) -o $(TARGET) $(OBJS) $(LIBS)

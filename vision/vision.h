@@ -6,22 +6,21 @@
 // Description : CATPOO Thrift Server
 //============================================================================
 
-//#include <cstdio>
-#include <cstdlib>
-#include <iostream>
+#include <vector>
+#include <opencv2/opencv.hpp>
 
-using std::cout;
+#ifndef __CATPOO_SERVER_H_
+#define __CATPOO_SERVER_H_
 
-#include "color.h"
+namespace CATPOO {
 
-int main (void) {
+	static const float FPS = 1.0f;
 
-	cout << std::endl << colors::YELLOW << "Starting up "
-			<< colors::MAGENTA << "CATPOO"
-			<< colors::YELLOW << " Thrift Server" << colors::RESET
-			<< std::endl << std::endl;
+	static const int FRAME_WIDTH  = 640;
+	static const int FRAME_HEIGHT = 360;
 
+	void captureFrame(int videoChannel);
 
-
-	return 0;
 }
+
+#endif
