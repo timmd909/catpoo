@@ -1,0 +1,23 @@
+#!/bin/bash 
+
+pushd "`dirname $0`" > /dev/null
+# -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- 
+
+function run_command()
+{
+	echo
+	echo -e "\033[36;1mExecuting \033[32;1m$1\033[36;1m...\033[0m"
+	$1
+	echo
+}
+
+# -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- 
+
+run_command "libtoolize"
+run_command "aclocal"
+run_command "autoheader"
+run_command "automake --add-missing"
+run_command "autoconf"
+
+# -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- 
+popd > /dev/null
