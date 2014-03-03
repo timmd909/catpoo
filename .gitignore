@@ -1,25 +1,26 @@
-/config/apache2.conf
-/config/catpoo-site
-/config/php.ini
+config/apache2.conf
+config/catpoo-site
+config/php.ini
 
-/erlide.log*
-/.metadata
+
+erlide.log*
+.metadata
 rpc_monitor-*
 
-/vision/*.o
-/vision/.cproject
-/vision/server
 
-/vision/thrift/*.cpp
-/vision/thrift/*.h
+motion/thrift/*.beam
+motion/*.beam
 
-/motion/thrift/*.beam
-/motion/*.beam
-/vision/depcomp
-/vision/stamp-h1
-/vision/autom4te.cache
-/vision/Makefile.in
 
+vision/thrift/*.cpp
+vision/thrift/*.h
+vision/*.o
+vision/.cproject
+vision/server
+vision/depcomp
+vision/stamp-h1
+vision/autom4te.cache
+vision/Makefile.in
 vision/configure
 vision/m4
 vision/.project
@@ -31,3 +32,13 @@ vision/config.sub
 vision/install-sh
 vision/missing
 vision/src/Makefile.in
+vision/src/*.o
+vision/Makefile
+vision/config.h
+vision/config.log
+vision/config.status
+vision/libtool
+vision/src/.deps/
+vision/src/Makefile
+vision/src/catpoo_vision
+
