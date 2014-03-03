@@ -21,3 +21,13 @@ rpc_monitor-*
 /vision/Makefile.in
 
 vision/configure
+vision/m4
+vision/.project
+vision/ltmain.sh
+vision/aclocal.m4
+vision/config.h.in
+vision/config.guess
+vision/config.sub
+vision/install-sh
+vision/missing
+vision/src/Makefile.in
