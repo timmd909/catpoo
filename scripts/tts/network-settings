@@ -1,0 +1,28 @@
+#!/bin/bash
+
+function extract_ip_address()
+{
+	DEVICE=$1
+	ifconfig $DEVICE | grep -o 'addr\:[0-9]*.[0-9]*.[0-9]*.[0-9]*' | sed 's/\./ dot  /g' | cut -d\: -f2
+}
+
+function speak()
+{
+	echo "$1" | festival --tts
+}
+
+function check_device()
+{
+	DEVICE="$1"
+	TYPE="$2"
+	
+	if [ `ifconfig  $DEVICE | grep inet | wc -l ` -lt 1 ]; then
+		speak "$TYPE is not connected"
+	else
+		speak "$TYPE is connected. Eye pee address is `extract_ip_address $DEVICE`"
+	fi	
+}
+
+check_device "eth0"   "Ether net zero"
+check_device "wlan0"  "Wire less zero"
+
