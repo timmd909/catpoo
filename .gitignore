@@ -16,7 +16,11 @@ motion/thrift/*.erl
 vision/thrift/*.cpp
 vision/thrift/*.h
 vision/*.o
+vision/thrift/*.o
+vision/thrift/Makefile
+vision/thrift/Makefile.in
 vision/.cproject
+vision/thrift/.deps
 vision/server
 vision/depcomp
 vision/stamp-h1
