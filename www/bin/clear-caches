@@ -1,0 +1,8 @@
+#!/bin/bash 
+
+pushd "`dirname $0`" > /dev/null 
+
+cd ../app/
+rm -rf logs/* cache/*
+
+popd > /dev/null 
