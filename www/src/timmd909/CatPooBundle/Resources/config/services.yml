@@ -1,7 +1,17 @@
 parameters:
-#    timmd909_cat_poo.example.class: timmd909\CatPooBundle\Example
+  timmd909_cat_poo_motion.class: timmd909\CatPooBundle\Service\MotionService
+  timmd909_cat_poo_base.class:   timmd909\CatPooBundle\Service\ServiceBase
 
 services:
-#    timmd909_cat_poo.example:
-#        class: %timmd909_cat_poo.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+  timmd909.catpoo.base:
+    class: %timmd909_cat_poo_base.class%
+    calls:
+      - [ setLogger, ["@logger"] ]
+
+  timmd909.catpoo.motion:
+    class: %timmd909_cat_poo_motion.class%
+    parent: timmd909.catpoo.base 
+    calls: 
+      - [ setChannels, ["0", "1", "2", "3"] ]
+      - [ setCommandPort, ["/dev/ttyACM0"]]    
+

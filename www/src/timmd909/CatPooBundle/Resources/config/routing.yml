@@ -6,3 +6,8 @@ timmd909_cat_poo_homepage:
 timmd909_cat_video_frame:
   pattern: /video/{which}
   defaults: { _controller: timmd909CatPooBundle:Default:video_frame }
+
+timmd909_motion:
+  pattern: /motion/{command}/{direction}
+  defaults: { _controller: timmd909CatPooBundle:Motion:command, _format: "xml", direction: 0 }
+
