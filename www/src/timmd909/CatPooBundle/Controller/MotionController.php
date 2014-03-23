@@ -10,6 +10,9 @@ class MotionController extends ControllerBase
 	{
 		$this->get('logger')->info("commandAction($command, $direction)");
 		
+		if ($direction > 127)  $direction = 127;
+		if ($direction < -127) $direction = -127;
+		
 		switch ($command) {
 			case 'move': {
 				$this->motionService->move($direction);

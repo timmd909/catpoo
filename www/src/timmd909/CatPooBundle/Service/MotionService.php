@@ -60,8 +60,8 @@ class MotionService extends ServiceBase
 			$flTarget = 127 + $direction;
 			$frTarget = 127 + $direction;
 		} else {
-			$flTarget = 127 - $direction;
-			$frTarget = 127 - $direction;
+			$flTarget = 128 - $direction;
+			$frTarget = 128 - $direction;
 		}
 		$brTarget = $frTarget;
 		$blTarget = $flTarget;
@@ -81,11 +81,11 @@ class MotionService extends ServiceBase
 			$frTarget = 127;
 			$flTarget = 127;
 		} elseif ($direction < 0) {
-			$flTarget = 127 - $direction;
+			$flTarget = 128 - $direction;
 			$frTarget = 127 + $direction;
 		} else {
 			$flTarget = 127 + $direction;
-			$frTarget = 127 - $direction;
+			$frTarget = 128 - $direction;
 		}
 		$brTarget = $frTarget;
 		$blTarget = $flTarget;
