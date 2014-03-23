@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo "Cat antagonizing tactical platform has booted" | festival --tts
