@@ -19,7 +19,7 @@ using std::endl;
 
 void printUsage()
 {
-	cout << "Usage: vision <channel>" << endl
+	cout << "Usage: catpoo_vision <channel>" << endl
 		<< "Where channel is an integer from 0 to n. This maps directly to "<< endl
 		<< colors::YELLOW << "/dev/video" << colors::MAGENTA << "X"
 			<< colors::RESET << endl;

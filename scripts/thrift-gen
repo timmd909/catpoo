@@ -34,9 +34,12 @@ for X in *.thrift; do
 	thrift -r --strict --gen cpp -out "$OUTPUT_DIR" "$X"
 	
 	# -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- 
+	#OUTPUT_DIR="../../motion/thrift"
+	#prepare_output_dir "$OUTPUT_DIR"
+	#thrift -r --gen erl -out "$OUTPUT_DIR" "$X"
 	OUTPUT_DIR="../../motion/thrift"
 	prepare_output_dir "$OUTPUT_DIR"
-	thrift -r --gen erl -out "$OUTPUT_DIR" "$X"
+	thrift -r --strict --gen cpp -out "$OUTPUT_DIR" "$X"
 	
 	# -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- 
 	echo -e " \033[32;1mdone\033[0m"

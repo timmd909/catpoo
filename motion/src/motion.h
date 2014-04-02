@@ -1,9 +1,9 @@
 //============================================================================
-// Name        : vision.h
+// Name        : motion.h
 // Author      : Tim Doerzbacher <tim@tim-doerzbacher.com>
 // Version     : nunyabidness
 // Copyright   : See LICENSE
-// Description : CATPOO Vision
+// Description : CATPOO Motion
 //============================================================================
 
 #include <vector>
@@ -14,15 +14,9 @@
 
 namespace CATPOO {
 
-	namespace vision {
-		static const float FPS = 1.0f;
-
-		static const int FRAME_WIDTH  = 640;
-		static const int FRAME_HEIGHT = 360;
-
-		void captureFrame(int videoChannel);
+	namespace motion {
+		;
 	}
-
 }
 
 #endif
