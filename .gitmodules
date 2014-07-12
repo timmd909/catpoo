@@ -6,3 +6,6 @@
 [submodule "3rdparty/rebar"]
 	path = 3rdparty/rebar
 	url = https://github.com/basho/rebar.git
+[submodule "3rdparty/serial"]
+	path = 3rdparty/serial
+	url = https://github.com/wjwwood/serial.git
