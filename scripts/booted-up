@@ -5,9 +5,13 @@
 
 pushd "`dirname $0`" > /dev/null
 
-./tts/booted-up
-./tts/network-settings 
-
+echo "Starting up button watcher"
 screen -dm -S watch-button ./watch-button
+
+for TTS in tts/*; do 
+	echo "Running $TTS"
+	./$TTS
+done
+
 
 popd > /dev/null 

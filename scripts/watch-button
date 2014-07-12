@@ -5,33 +5,35 @@
 
 # move all GPIO #s to a common config at some point. 
 BUTTON_GPIO=17
-STATUS_LED=22
+STATUS_LED=27
 
 VALUE_FILE="/sys/class/gpio/gpio${BUTTON_GPIO}/value"
+STATUS_FILE="/sys/class/gpio/gpio${STATUS_LED}/value"
 
 echo 'Initializing GPIO'
 
-echo $BUTTON_GPIO > "/sys/class/gpio/export" > /dev/null
+echo $BUTTON_GPIO > "/sys/class/gpio/export"
 echo in > "/sys/class/gpio/gpio${BUTTON_GPIO}/direction"
 
-echo 
+echo $STATUS_LED > "/sys/class/gpio/export" 
+echo out > "/sys/class/gpio/gpio${STATUS_LED}/direction"
+echo 1 > "$STATUS_FILE"
 
 echo "And now, watching the button..."
 while [ true ]; do 
 	STATE="`cat $VALUE_FILE`"
-	
+
 	if [ $STATE -eq 0 ] ; then 
+		echo 0 > $STATUS_FILE
+		
 		echo "Button pressed. Resetting net work king" | festival --tts
-		
-		echo 0 > "/sys/class/gpio/gpio${STATUS_LED}/value"
-		
+
 		sudo service network-manager restart 
-		sudo service networking restart 
+		#sudo service networking restart 
 
 		./tts/network-settings
 		
-		echo 1 > "/sys/class/gpio/gpio${STATUS_LED}/value"
-		
+		echo 1 > "$STATUS_FILE"
 		echo "Networking reset. Back to the waiting game..." 
 	fi
 	
