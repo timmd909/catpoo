@@ -56,9 +56,6 @@ class MotionService extends ServiceBase
 		if ($direction == 0) {
 			$frTarget = 127;
 			$flTarget = 127;
-		} elseif ($direction < 0) {
-			$flTarget = 127 + $direction;
-			$frTarget = 127 + $direction;
 		} else {
 			$flTarget = 128 - $direction;
 			$frTarget = 128 - $direction;
@@ -80,9 +77,6 @@ class MotionService extends ServiceBase
 		if ($direction == 0) {
 			$frTarget = 127;
 			$flTarget = 127;
-		} elseif ($direction < 0) {
-			$flTarget = 128 - $direction;
-			$frTarget = 127 + $direction;
 		} else {
 			$flTarget = 127 + $direction;
 			$frTarget = 128 - $direction;
