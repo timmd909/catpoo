@@ -16,13 +16,26 @@ function check_device()
 	DEVICE="$1"
 	TYPE="$2"
 	
-	if [ `ifconfig  $DEVICE | grep inet | wc -l ` -lt 1 ]; then
-		speak "$TYPE is not connected"
-	else
-		speak "$TYPE is connected. Eye pee address is `extract_ip_address $DEVICE`"
-	fi	
+	SPEECH=""
+	
+	if [ "`ifconfig -a | grep $DEVICE | wc -l `" -lt 1 ]; then
+		SPEECH="$SPEECH $TYPE device not found"
+	else 
+		SPEECH="$SPEECH Found device $TYPE"
+
+		if [ `ifconfig  $DEVICE | grep inet | wc -l ` -lt 1 ]; then
+			SPEECH="$SPEECH but it is not available"
+		else
+			SPEECH="$SPEECH and has connected. Eye pee address is `extract_ip_address $DEVICE`"
+		fi	
+		
+	fi 
+	
+	speak "$SPEECH"
+	
 }
 
 check_device "eth0"   "Ether net zero"
-check_device "wlan0"  "Wire less zero"
 
+check_device "wlan0"  "Wire less zero"
+check_device "wlan1"  "Wire less one"
