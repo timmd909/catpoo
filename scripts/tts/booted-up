@@ -1,11 +1,3 @@
 #!/bin/bash
 
-pushd "`dirname $0`" > /dev/null
-
 echo "Cat antagonizing tactical platform has booted" | festival --tts
-
-# Any additional scripts go here 
-./network-settings
-
-popd > /dev/null 
-

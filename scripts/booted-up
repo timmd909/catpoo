@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# This should be run by crontab 
+#
+
+pushd "`dirname $0`" > /dev/null
+
+./tts/booted-up
+./tts/network-settings 
+
+screen -dm -S watch-button ./watch-button
+
+popd > /dev/null 
