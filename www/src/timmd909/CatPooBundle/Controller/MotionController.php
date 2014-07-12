@@ -4,6 +4,9 @@ namespace timmd909\CatPooBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
+/**
+ * Note: This is deprecated in favor of the C++ program
+ */
 class MotionController extends ControllerBase
 {
 	public function commandAction($command, $direction)

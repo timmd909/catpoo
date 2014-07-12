@@ -1,5 +1,5 @@
 timmd909_cat_poo_homepage:
-  pattern:  /hello/{name}
+  pattern:  /
   defaults: { _controller: timmd909CatPooBundle:Default:index }
 
 
