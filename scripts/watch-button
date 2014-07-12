@@ -28,8 +28,10 @@ while [ true ]; do
 		
 		echo "Button pressed. Resetting net work king" | festival --tts
 
-		sudo service network-manager restart 
-		#sudo service networking restart 
+		sudo service network-manager restart
+			
+		# wait a couple seconds for DHCP negotiation
+		sleep 10s
 
 		./tts/network-settings
 		
