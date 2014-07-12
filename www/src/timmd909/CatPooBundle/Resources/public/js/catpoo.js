@@ -40,6 +40,30 @@ $(document).ready(function() {
 	
 	GENERAL_STATUS.html("Loaded.");
 	
+	$(window).on('keypress', function (event) {
+		window.console.log(event);
+		
+		stopMoving(); 
+		startTurning();
+		
+		switch (event.key) {
+		case 'Left':
+			window.console.log('Turning left');
+			startTurning(event.shiftKey ? -80 : -40 );
+			break;
+		case 'Right':
+			window.console.log('Turning right');
+			startTurning(event.shiftKey ? 80 : 40 );
+			break;
+		case 'Up': 
+			startMoving(event.shiftKey ? 80 : 40);
+			break;
+		case 'Down': 
+			startMoving(event.shiftKey ? -80 : -40);
+			break;
+		}
+	});
+	
 });
 
 function onMouseUp(event)
