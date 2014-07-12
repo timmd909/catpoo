@@ -160,6 +160,8 @@ function motion_detected()
 
 if (!motion_detected()) {
 	turn_right(rand(1,1000)/1000.0); 
+	turn_left(rand(1,1000)/1000.0);
+	go_forward(10); 
 } else {
 	; // do nothing... things are moving
 }
