@@ -14,7 +14,6 @@
 #include <cstdlib>
 
 #include "motion.h"
-#include "Serial.h"
 
 #include "cgicc/Cgicc.h"
 #include "cgicc/HTTPHTMLHeader.h"
@@ -29,8 +28,6 @@ using std::exception;
 using cgicc::Cgicc;
 using cgicc::HTTPHTMLHeader;
 using cgicc::form_iterator;
-
-using CATPOO::motion::Serial;
 
 int main (int argc, char **argv)
 {
