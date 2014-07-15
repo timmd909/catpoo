@@ -14,6 +14,7 @@
 #include <cstdlib>
 
 #include "motion.h"
+#include "Serial.h"
 
 #include "cgicc/Cgicc.h"
 #include "cgicc/HTTPHTMLHeader.h"
@@ -28,6 +29,8 @@ using std::exception;
 using cgicc::Cgicc;
 using cgicc::HTTPHTMLHeader;
 using cgicc::form_iterator;
+
+using CATPOO::motion::Serial;
 
 int main (int argc, char **argv)
 {
@@ -110,14 +113,24 @@ namespace CATPOO {
 		void setAllWheels(unsigned int fr, unsigned int fl,
 				unsigned int bl, unsigned int br)
 		{
-			unsigned char commands[] = {
-				COMMAND_MINI_SSC, FRONT_RIGHT, fr,
-				COMMAND_MINI_SSC, FRONT_LEFT , fl,
-				COMMAND_MINI_SSC, BACK_LEFT  , bl,
-				COMMAND_MINI_SSC, BACK_RIGHT , br
-			};
+			unsigned char commands[3];
+			commands[0] = COMMAND_MINI_SSC;
 
-			execute(commands, 3*4);
+			commands[1] = FRONT_RIGHT;
+			commands[2] = fr;
+			execute(commands, 3);
+
+			commands[1] = FRONT_LEFT;
+			commands[2] = fl;
+			execute(commands, 3);
+
+			commands[1] = BACK_LEFT;
+			commands[2] = bl;
+			execute(commands, 3);
+
+			commands[1] = BACK_RIGHT;
+			commands[2] = br;
+			execute(commands, 3);
 		}
 
 		void move(int direction)
@@ -140,7 +153,7 @@ namespace CATPOO {
 
 			// determine values for front wheels
 			unsigned int frTarget = (127 - direction),
-					flTarget = (127 - direction);
+				flTarget = (127 - direction);
 
 			setAllWheels(frTarget, flTarget, flTarget, frTarget);
 		}

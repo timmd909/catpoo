@@ -25,6 +25,10 @@ namespace CATPOO {
 	namespace motion {
 
 		const std::string DEVICE = "/dev/ttyACM0";
+		// const int BAUD_RATE = 19200;
+		const int BAUD_RATE = 14400;
+		// const int BAUD_RATE = 9600;
+		// const int BAUD_RATE = 2400;
 
 		// this should be loaded from an external file in the future...
 		// but for now, I don't really change the servos out that often
