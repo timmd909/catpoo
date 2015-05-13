@@ -4,6 +4,8 @@
 * apache2
 * erlang
 * g++
+* libasio-dev
+* libasio-doc
 * make
 * php-apc
 * php5-dev
