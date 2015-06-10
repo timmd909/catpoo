@@ -9,9 +9,15 @@ rpc_monitor-*
 
 
 motion/*.beam
+motion/Makefile.in
+motion/build
+motion/config.*
+motion/m4
+motion/missing
 motion/thrift/*.beam
-motion/thrift/*.hrl
 motion/thrift/*.erl
+motion/thrift/*.hrl
+
 
 vision/thrift/*.cpp
 vision/thrift/*.h
