@@ -1,0 +1,15 @@
+{
+  "name": "catpoo",
+  "version": "0.0.1",
+  "author": "Tim Doerzbacher <tim@tim-doerzbacher.com>",
+  "private": true,
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-copy": "^0.8.0",
+    "grunt-contrib-eslint": "0.0.5",
+    "grunt-contrib-watch": "^0.6.1",
+    "load-grunt-config": "^0.17.2",
+    "load-grunt-tasks": "^3.2.0"
+  }
+}

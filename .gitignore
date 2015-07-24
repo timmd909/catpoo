@@ -1,3 +1,5 @@
+node_modules
+
 config/apache2.conf
 config/catpoo-site
 config/php.ini
