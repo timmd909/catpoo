@@ -1,0 +1,6 @@
+- name: Install PHP packages
+  apt: name={{ item }}
+  with_items:
+  - php5
+  - php-apc
+  - php5-sqlite

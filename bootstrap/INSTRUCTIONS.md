@@ -25,13 +25,6 @@ Doing it this way will skip the `preansible.sh` and most `raspi-config` steps:
 What you'll have to do 
 
 * Expand the volumes (`sudo raspi-config`)
-* Configuration network settings (only ethernet will work at first)
-
-
-
-
-
-
-
-
+* Configuration network settings (wireless is easiest to do after the
+  Ansible has done its thing)
 

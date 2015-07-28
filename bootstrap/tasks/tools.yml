@@ -1,0 +1,15 @@
+- name: Install screen
+  apt: name=screen
+
+- name: Install htop
+  apt: name=htop
+
+- name: Install iotop
+  apt: name=iotop
+
+- name: Install nmap
+  apt: name=nmap    
+
+- name: Install Vim
+  apt: name=vim
+

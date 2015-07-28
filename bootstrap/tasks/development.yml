@@ -1,0 +1,22 @@
+- name: Install build utilities
+  apt: name={{ item }}
+  with_items:
+  - build-essential
+  - make
+  - m4
+  - libtool
+  - autoconf
+  - automake
+
+- name: Install GCC, G++
+  apt: name={{ item }}
+  with_items:
+  - gpp
+  - gcc
+  - g++-mingw-w64-x86-64
+  
+- name: Install Python
+  apt: name={{ item }}
+  with_items:
+  - python
+  - python-pysqlite2
