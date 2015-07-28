@@ -4,7 +4,7 @@
 #
 # To run this, execute:
 #
-#   curl --silent https://raw.githubusercontent.com/timmd909/catpoo/master/bootstrap/preansible.sh | bash -
+#   curl --silent https://raw.githubusercontent.com/timmd909/catpoo/master/bootstrap/preansible.sh | bash --login -
 #
 
 PACKAGES=$(cat << EOT
