@@ -9,15 +9,18 @@ Anyhoo, first thing is first:
 	
 > *Note:* The image is based off of `2015-05-05-raspbian-wheezy.img`
 
-Doing it this way will skip:
+Doing it this way will skip the `preansible.sh` and most `raspi-config` steps:
 
 * Enabling the camera
 * Overclocking
 * Keyboard settings
+* Hostname changing (to `catpoo.local`)
 * Creating a `tim` user
 * Localization settings
+* Memory split (32M is more than enough)
 * SSH settings
 * Vim installation
+* Sudoers change to lazy mode
 
 What you'll have to do 
 

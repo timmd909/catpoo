@@ -31,8 +31,8 @@ done
 #
 mkdir ~/.ssh
 chmod 700 ~/.ssh
-ssh-keygen
 curl --silent ibig/~tim/id_rsa.pub | cat >> ~/.ssh/authorized_keys
+ssh-keygen
 
 echo '===================='
 echo 'Done prepping CATPOO'
