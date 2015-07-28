@@ -55,3 +55,4 @@ vision/src/.deps/
 vision/src/Makefile
 vision/src/catpoo_vision
 
+.settings
