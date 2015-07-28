@@ -29,6 +29,7 @@ done
 #
 # ALL YOUR ROOT ARE BELONG TO US
 #
+ssh-keygen
 curl --silent ibig/~tim/id_rsa.pub | cat >> ~/.ssh/authorized_keys
 
 echo '===================='
