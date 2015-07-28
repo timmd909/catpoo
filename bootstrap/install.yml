@@ -6,17 +6,8 @@
   sudo: yes
   tasks:
     - include: tasks/tools.yml
-#    - include: tasks/development.yml    
-#    - include: tasks/sqlite.yml
-#    - include: tasks/php.yml
-#    - include: tasks/apache.yml
-#    - include: tasks/gnome.yml
-
-#
-# Configuration of user settings
-#
-- hosts: catpoo
-  tasks:
-  - lineinfile: dest={{ ansible_env.HOME }}/.screenrc line="startup_message off" create=yes
-  - lineinfile: dest={{ ansible_env.HOME }}/.vimrc line="set tabstop=4" create=yes
-  - git: repo="git@github.com:timmd909/catpoo.git" clone=yes dest={{ ansible_env.HOME }}/src/catpoo recursive=yes accept_hostkey=yes
+    - include: tasks/development.yml    
+    - include: tasks/sqlite.yml
+    - include: tasks/php.yml
+    - include: tasks/apache.yml
+    - include: tasks/gnome.yml
