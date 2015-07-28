@@ -29,6 +29,8 @@ done
 #
 # ALL YOUR ROOT ARE BELONG TO US
 #
+mkdir ~/.ssh
+chmod 700 ~/.ssh
 ssh-keygen
 curl --silent ibig/~tim/id_rsa.pub | cat >> ~/.ssh/authorized_keys
 
