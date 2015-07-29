@@ -13,7 +13,7 @@
   with_items:
   - gpp
   - gcc
-  - g++-mingw-w64-x86-64
+  - g++
   
 - name: Install Python
   apt: name={{ item }}
