@@ -14,9 +14,19 @@
   - gpp
   - gcc
   - g++
-  
+
 - name: Install Python
   apt: name={{ item }}
   with_items:
   - python
   - python-pysqlite2
+
+- name: Download latest Node
+  command: wget http://node-arm.herokuapp.com/node_latest_armhf.deb
+
+- name: Install Node
+  command: dpkg -i node_latest_armhf.deb
+
+- name: Node cleanup
+  command: rm node_latest_armhf.deb
+
