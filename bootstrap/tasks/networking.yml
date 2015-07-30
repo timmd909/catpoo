@@ -1,0 +1,21 @@
+- name: Install hostapd
+  apt: name=hostapd
+
+- name: Update hostapd
+  command: "{{ item }}"
+  with_items:
+    - wget http://adafruit-download.s3.amazonaws.com/adafruit_hostapd_14128.zip
+    - unzip adafruit_hostapd_14128.zip
+    - chown root.root hostapd
+    - chmod +x hostapd
+    - mv hostapd /usr/sbin/hostapd
+    - rm adafruit_hostapd_14128.zip
+
+- name: Install DHCPD
+  apt: name=isc-dhcp-server
+
+- name: Install Bind
+  apt: name=bind9
+
+- name: Install Bridge Utils
+  apt: name=bridge-utils

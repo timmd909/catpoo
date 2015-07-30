@@ -1,7 +1,5 @@
-- name: Install SQLite 
+- name: Install SQLite
   apt: name={{ item }}
   with_items:
   - sqlite3
   - sqlite3-doc
-
-

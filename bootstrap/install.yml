@@ -6,7 +6,8 @@
   sudo: yes
   tasks:
     - include: tasks/tools.yml
-    - include: tasks/development.yml    
+    - include: tasks/networking.yml
+    - include: tasks/development.yml
     - include: tasks/sqlite.yml
     - include: tasks/php.yml
     - include: tasks/apache.yml

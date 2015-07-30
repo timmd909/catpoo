@@ -1,9 +1,36 @@
 ---
 #
+# Configure system settings
+#
+- hosts: catpoo
+  sudo: yes
+  tasks:
+  - copy: dest=/etc/network/interfaces src=files/etc/network/interfaces
+
+  - copy: dest=/etc/dhcp/dhcpd.conf src=files/dhcpd.conf
+
+  - command: mkdir -p /etc/bind/zones
+  - copy: dest=/etc/bind/zones/catpoo.local.zone src=files/etc/bind/zones/catpoo.local.zone
+  - copy: dest=/etc/bind/zones/rev.37.13.10-in-addr.arpa src=files/etc/bind/zones/rev.37.13.10-in-addr.arpa
+  - copy: dest=/etc/bind/named.conf.local src=files/etc/bind/named.conf.local
+  - copy: dest=/etc/bind/bad-hosts.conf src=files/etc/bind/bad-hosts.conf
+
+  - copy: dest=/etc/default/isc-dhcp-server src=files/etc/default/isc-dhcp-server
+
+  - copy: dest=/etc/default/hostapd src=files/etc/default/hostapd
+  - copy: dest=/etc/hostapd/hostapd.conf src=files/etc/hostapd/hostapd.conf
+
+  - lineinfile: dest=/etc/sysctl.conf line="net.ipv4.ip_forward=1"
+
+#
 # Configuration of user settings
 #
 - hosts: catpoo
   tasks:
   - lineinfile: dest={{ ansible_env.HOME }}/.screenrc line="startup_message off" create=yes
   - lineinfile: dest={{ ansible_env.HOME }}/.vimrc line="set tabstop=4" create=yes
+  - command: rm -rf {{ ansible_env.HOME }}/src/catpoo
   - git: repo="git@github.com:timmd909/catpoo.git" clone=yes dest={{ ansible_env.HOME }}/src/catpoo recursive=yes accept_hostkey=yes
+  - command: npm install
+    args:
+      chdir: "{{ ansible_env.HOME }}/src/catpoo"

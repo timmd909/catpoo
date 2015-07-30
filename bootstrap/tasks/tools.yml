@@ -8,8 +8,7 @@
   apt: name=iotop
 
 - name: Install nmap
-  apt: name=nmap    
+  apt: name=nmap
 
 - name: Install Vim
   apt: name=vim
-

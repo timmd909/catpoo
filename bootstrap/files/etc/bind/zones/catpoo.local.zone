@@ -1,0 +1,11 @@
+$TTL 604800
+@ IN	SOA yonbai.catpoo.local. tim.catpoo.local. (
+	2011102402
+	28800
+	3600
+	604800
+	38400 )
+@ IN NS yonbai.catpoo.local.
+
+yonbai        IN A 10.13.37.1
+catpoo.local. IN A 10.13.37.1
