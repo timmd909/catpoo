@@ -25,7 +25,10 @@
       - cp config/catpoo-site.default config/catpoo-site
       - npm install
   - name: Symlink CATPOO site configuration
-    command: sudo ln -s {{ ansible_env.HOME }}/src/catpoo/config/catpoo-site /etc/apache2/sites-available/catpoo-site
+    command: "{{ item }}"
+    with_items:
+      - sudo rm -f /etc/apache2/sites-available/catpoo-site
+      - sudo ln -s {{ ansible_env.HOME }}/src/catpoo/config/catpoo-site /etc/apache2/sites-available/catpoo-site
 
 #
 # Configure system settings
