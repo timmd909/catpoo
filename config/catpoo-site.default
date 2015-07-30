@@ -1,7 +1,7 @@
 <VirtualHost *:80>
 	ServerAdmin webmaster@localhost
 
-	DocumentRoot /home/pi/catpoo/www/web
+	DocumentRoot /home/tim/catpoo/www/web
 	<Directory />
 		Options FollowSymLinks
 		AllowOverride All
