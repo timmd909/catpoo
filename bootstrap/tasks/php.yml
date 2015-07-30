@@ -4,3 +4,4 @@
   - php5
   - php-apc
   - php5-sqlite
+  - php5-curl
