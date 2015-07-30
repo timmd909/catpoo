@@ -23,6 +23,8 @@
   - lineinfile: dest=/etc/sysctl.conf line="net.ipv4.ip_forward=1"
 
   - copy: dest=/etc/motd src=files/etc/motd
+  - copy: dest=/etc/rc.local src=files/etc/rc.local
+  - copy: dest=/etc/iptables.rules src=files/etc/iptables.rules
 
 #
 # Configuration of user settings
