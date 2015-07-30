@@ -12,10 +12,11 @@
     command: rm -rf {{ ansible_env.HOME }}/src/catpoo
   - name: Clone CATPOO repo
     git: repo="git@github.com:timmd909/catpoo.git" clone=yes dest={{ ansible_env.HOME }}/src/catpoo recursive=yes accept_hostkey=yes
-  - name: Install vendors
-    command: "{{ ansible_env.HOME }}/src/catpoo/composer.phar install"
-    args:
-      chdir: "{{ ansible_env.HOME }}/src/catpoo/www"
+  # This starts running, but 30 minutes later, still hasn't finished. Blah!
+  #- name: Install vendors
+  #  command: "{{ ansible_env.HOME }}/src/catpoo/composer.phar install"
+  #  args:
+  #    chdir: "{{ ansible_env.HOME }}/src/catpoo/www"
   - name: Setup CATPOO repo
     command: "{{ item }}"
     args:
