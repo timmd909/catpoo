@@ -4,12 +4,16 @@
 #
 - hosts: catpoo
   tasks:
-  - lineinfile: dest={{ ansible_env.HOME }}/.screenrc line="startup_message off" create=yes
-  - lineinfile: dest={{ ansible_env.HOME }}/.vimrc line="set tabstop=4" create=yes
-  - command: rm -rf {{ ansible_env.HOME }}/src/catpoo
-  - git: repo="git@github.com:timmd909/catpoo.git" clone=yes dest={{ ansible_env.HOME }}/src/catpoo recursive=yes accept_hostkey=yes
+  - name: Disable screen startup message
+    lineinfile: dest={{ ansible_env.HOME }}/.screenrc line="startup_message off" create=yes
+  - name: Vim configuration settings
+    lineinfile: dest={{ ansible_env.HOME }}/.vimrc line="set tabstop=4" create=yes
+  - name: Clean out CATPOO
+    command: rm -rf {{ ansible_env.HOME }}/src/catpoo
+  - name: Clone CATPOO repo
+    git: repo="git@github.com:timmd909/catpoo.git" clone=yes dest={{ ansible_env.HOME }}/src/catpoo recursive=yes accept_hostkey=yes
   - name: Install vendors
-    command: ../composer.phar install
+    command: "{{ ansible_env.HOME }}/src/catpoo/composer.phar install"
     args:
       chdir: "{{ ansible_env.HOME }}/src/catpoo/www"
   - name: Setup CATPOO repo
@@ -19,7 +23,8 @@
     with_items:
       - cp config/catpoo-site.default config/catpoo-site
       - npm install
-  - command: sudo ln -s {{ ansible_env.HOME }}/src/catpoo/config/catpoo-site /etc/apache2/sites-available/catpoo-site
+  - name: Symlink CATPOO site configuration
+    command: sudo ln -s {{ ansible_env.HOME }}/src/catpoo/config/catpoo-site /etc/apache2/sites-available/catpoo-site
 
 #
 # Configure system settings
