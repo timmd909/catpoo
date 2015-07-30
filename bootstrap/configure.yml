@@ -1,5 +1,19 @@
 ---
 #
+# Configuration of user settings
+#
+- hosts: catpoo
+  tasks:
+  - lineinfile: dest={{ ansible_env.HOME }}/.screenrc line="startup_message off" create=yes
+  - lineinfile: dest={{ ansible_env.HOME }}/.vimrc line="set tabstop=4" create=yes
+  - command: rm -rf {{ ansible_env.HOME }}/src/catpoo
+  - git: repo="git@github.com:timmd909/catpoo.git" clone=yes dest={{ ansible_env.HOME }}/src/catpoo recursive=yes accept_hostkey=yes
+  - command: npm install
+    args:
+      chdir: "{{ ansible_env.HOME }}/src/catpoo"
+  - command: cp "{{ ansible_env.HOME }}/src/catpoo/config/catpoo-site.default" "{{ ansible_env.HOME }}/src/catpoo/config/catpoo-site"
+
+#
 # Configure system settings
 #
 - hosts: catpoo
@@ -26,15 +40,7 @@
   - copy: dest=/etc/rc.local src=files/etc/rc.local
   - copy: dest=/etc/iptables.rules src=files/etc/iptables.rules
 
-#
-# Configuration of user settings
-#
-- hosts: catpoo
-  tasks:
-  - lineinfile: dest={{ ansible_env.HOME }}/.screenrc line="startup_message off" create=yes
-  - lineinfile: dest={{ ansible_env.HOME }}/.vimrc line="set tabstop=4" create=yes
-  - command: rm -rf {{ ansible_env.HOME }}/src/catpoo
-  - git: repo="git@github.com:timmd909/catpoo.git" clone=yes dest={{ ansible_env.HOME }}/src/catpoo recursive=yes accept_hostkey=yes
-  - command: npm install
-    args:
-      chdir: "{{ ansible_env.HOME }}/src/catpoo"
+  - command: rm -f /etc/apache2/sites-available/catpoo
+  - command: ln -s "{{ ansible_env.HOME }}/src/catpoo/config/catpoo-site" /etc/apache2/sites-available/catpoo-site
+  - command: a2ensite catpoo-site
+
