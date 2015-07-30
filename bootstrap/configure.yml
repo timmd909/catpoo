@@ -7,7 +7,7 @@
   tasks:
   - copy: dest=/etc/network/interfaces src=files/etc/network/interfaces
 
-  - copy: dest=/etc/dhcp/dhcpd.conf src=files/dhcpd.conf
+  - copy: dest=/etc/dhcp/dhcpd.conf src=files/etc/dhcp/dhcpd.conf
 
   - command: mkdir -p /etc/bind/zones
   - copy: dest=/etc/bind/zones/catpoo.local.zone src=files/etc/bind/zones/catpoo.local.zone
