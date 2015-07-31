@@ -71,4 +71,4 @@
   - command: rm -f /etc/apache2/sites-available/catpoo
   - command: a2dissite 000-default
   - command: a2ensite catpoo-site
-
+  - command: service apache2 restart 
