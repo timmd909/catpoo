@@ -30,3 +30,5 @@
 - name: Node cleanup
   command: rm node_latest_armhf.deb
 
+- name: Install Grunt CLI
+  command: npm install -g grunt-cli
