@@ -9,7 +9,7 @@
   - name: Vim configuration settings
     lineinfile: dest={{ ansible_env.HOME }}/.vimrc line="set tabstop=4" create=yes
   - name: Clean out CATPOO
-    command: rm -rf {{ ansible_env.HOME }}/src/catpoo
+    command: sudo rm -rf {{ ansible_env.HOME }}/src/catpoo
   - name: Clone CATPOO repo
     git: repo="git@github.com:timmd909/catpoo.git" clone=yes dest={{ ansible_env.HOME }}/src/catpoo recursive=yes accept_hostkey=yes
   - name: Install vendors
