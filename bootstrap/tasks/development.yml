@@ -4,12 +4,13 @@
 - name: Install build utilities
   apt: name={{ item }}
   with_items:
-  - build-essential
-  - make
-  - m4
-  - libtool
   - autoconf
   - automake
+  - build-essential
+  - flex
+  - libtool
+  - m4
+  - make
 
 - name: Install GCC, G++
   apt: name={{ item }}

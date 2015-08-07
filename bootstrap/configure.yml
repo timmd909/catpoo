@@ -23,6 +23,17 @@
     args:
       chdir: "{{ ansible_env.HOME }}/src/catpoo/www"
   #
+  # Build any 3rd party libraries necessary
+  #
+  - name: Build Thrift
+    command: "{{ item }}"
+    args:
+      chdir: "{{ ansible_env.HOME }}/src/catpoo/3rdparty/thrift"
+    with_items:
+    - ./bootstrap.sh
+    - ./configure
+    - make -j 4
+  #
   # Configure CATPOO site
   #
   - name: Setup CATPOO repo
