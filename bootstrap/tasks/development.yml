@@ -1,3 +1,6 @@
+#
+# Programming languages
+#
 - name: Install build utilities
   apt: name={{ item }}
   with_items:
@@ -21,6 +24,9 @@
   - python
   - python-pysqlite2
 
+#
+# Node and utilites
+#
 - name: Download latest Node
   command: wget http://node-arm.herokuapp.com/node_latest_armhf.deb
 
@@ -32,3 +38,46 @@
 
 - name: Install Grunt CLI
   command: npm install -g grunt-cli
+
+#
+# OpenCV
+#
+- name: Install OpenCV libraries
+  apt: name={{ item }}
+  with_items:
+  - opencv-doc
+  - libcv2.4
+  - libcvaux2.4
+  - libcvaux-dev
+  - libcv-dev
+  - libhighgui2.4
+  - libhighgui-dev
+  - libopencv-calib3d2.4
+  - libopencv-calib3d-dev
+  - libopencv-contrib2.4
+  - libopencv-contrib-dev
+  - libopencv-core2.4
+  - libopencv-core-dev
+  - libopencv-dev
+  - libopencv-features2d2.4
+  - libopencv-features2d-dev
+  - libopencv-flann2.4
+  - libopencv-flann-dev
+  - libopencv-imgproc2.4
+  - libopencv-imgproc-dev
+  - libopencv-legacy2.4
+  - libopencv-legacy-dev
+  - libopencv-ml2.4
+  - libopencv-ml-dev
+  - libopencv-objdetect2.4
+  - libopencv-objdetect-dev
+  - libopencv-photo2.4
+  - libopencv-photo-dev
+  - libopencv-stitching2.4
+  - libopencv-stitching-dev
+  - libopencv-ts2.4
+  - libopencv-ts-dev
+  - libopencv-video2.4
+  - libopencv-video-dev
+  - libopencv-videostab2.4
+  - libopencv-videostab-dev
