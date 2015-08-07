@@ -32,7 +32,8 @@
     with_items:
     - ./bootstrap.sh
     - ./configure
-    - make -j 4
+    - make
+    - sudo make install
   #
   # Configure CATPOO site
   #
