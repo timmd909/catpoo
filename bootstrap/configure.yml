@@ -4,10 +4,16 @@
 #
 - hosts: catpoo
   tasks:
+  #
+  # Preferences
+  #
   - name: Disable screen startup message
     lineinfile: dest={{ ansible_env.HOME }}/.screenrc line="startup_message off" create=yes
   - name: Vim configuration settings
     lineinfile: dest={{ ansible_env.HOME }}/.vimrc line="set tabstop=4" create=yes
+  #
+  # Clean out and clone repo
+  #
   - name: Clean out CATPOO
     command: sudo rm -rf {{ ansible_env.HOME }}/src/catpoo
   - name: Clone CATPOO repo
@@ -16,6 +22,9 @@
     command: "{{ ansible_env.HOME }}/src/catpoo/composer.phar --no-interaction install"
     args:
       chdir: "{{ ansible_env.HOME }}/src/catpoo/www"
+  #
+  # Configure CATPOO site
+  #
   - name: Setup CATPOO repo
     command: "{{ item }}"
     args:
@@ -23,11 +32,6 @@
     with_items:
       - cp config/catpoo-site.default config/catpoo-site
       - npm install
-  - name: Set ACL for CATPOO
-    command: "{{ item }}"
-    with_items:
-    - setfacl -R -m www-data:rwx {{ ansible_env.HOME }}/src/catpoo/www/app/cache {{ ansible_env.HOME }}/src/catpoo/www/app/logs
-    - setfacl -R -m "{{ ansible_env.USER}}:rwx" {{ ansible_env.HOME }}/src/catpoo/www/app/cache {{ ansible_env.HOME }}/src/catpoo/www/app/logs
   - name: Symlink CATPOO site configuration
     command: "{{ item }}"
     with_items:
@@ -40,6 +44,19 @@
     - sudo setfacl -R -d -m www-data:rwx {{ ansible_env.HOME }}/src/catpoo/www/app/cache {{ ansible_env.HOME }}/src/catpoo/www/app/logs
     - sudo setfacl -R -m "{{ ansible_env.USER}}:rwx" {{ ansible_env.HOME }}/src/catpoo/www/app/cache {{ ansible_env.HOME }}/src/catpoo/www/app/logs
     - sudo setfacl -R -d -m "{{ ansible_env.USER}}:rwx" {{ ansible_env.HOME }}/src/catpoo/www/app/cache {{ ansible_env.HOME }}/src/catpoo/www/app/logs
+  - command: sudo rm -f /etc/apache2/sites-available/catpoo
+  - command: sudo a2dissite 000-default
+  - command: sudo a2ensite catpoo-site
+  - command: sudo service apache2 restart
+  #
+  # SHM configuration
+  #
+  - cron: name="Create CATPOO TMPFS directory" special_time="reboot" job="mkdir /run/shm/catpoo"
+  - cron: name="Create CATPOO TMPFS symlink"  special_time="reboot" job="ln -s /run/shm/catpoo {{ ansible_env.HOME }}/src/catpoo/www/shm"
+
+
+# -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- #
+
 
 #
 # Configure system settings
@@ -51,6 +68,9 @@
 
   - copy: dest=/etc/dhcp/dhcpd.conf src=files/etc/dhcp/dhcpd.conf
 
+  #
+  # DNS server configuration
+  #
   - command: mkdir -p /etc/bind/zones
   - copy: dest=/etc/bind/zones/catpoo.local.zone src=files/etc/bind/zones/catpoo.local.zone
   - copy: dest=/etc/bind/zones/rev.37.13.10-in-addr.arpa src=files/etc/bind/zones/rev.37.13.10-in-addr.arpa
@@ -62,13 +82,12 @@
   - copy: dest=/etc/default/hostapd src=files/etc/default/hostapd
   - copy: dest=/etc/hostapd/hostapd.conf src=files/etc/hostapd/hostapd.conf
 
+  #
+  # Routing
+  #
   - lineinfile: dest=/etc/sysctl.conf line="net.ipv4.ip_forward=1"
 
   - copy: dest=/etc/motd src=files/etc/motd
   - copy: dest=/etc/rc.local src=files/etc/rc.local
   - copy: dest=/etc/iptables.rules src=files/etc/iptables.rules
 
-  - command: rm -f /etc/apache2/sites-available/catpoo
-  - command: a2dissite 000-default
-  - command: a2ensite catpoo-site
-  - command: service apache2 restart 
