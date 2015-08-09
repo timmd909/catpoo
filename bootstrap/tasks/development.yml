@@ -83,3 +83,11 @@
   - libopencv-video-dev
   - libopencv-videostab2.4
   - libopencv-videostab-dev
+
+#
+# Miscellaneous libraries
+#
+- name: Install Boost Libraries
+  apt: name={{ item }}
+  with_items: 
+  - libboost-all-dev

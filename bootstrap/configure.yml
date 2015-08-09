@@ -23,18 +23,6 @@
     args:
       chdir: "{{ ansible_env.HOME }}/src/catpoo/www"
   #
-  # Build any 3rd party libraries necessary
-  #
-  - name: Build Thrift
-    command: "{{ item }}"
-    args:
-      chdir: "{{ ansible_env.HOME }}/src/catpoo/3rdparty/thrift"
-    with_items:
-    - ./bootstrap.sh
-    - ./configure
-    - make
-    - sudo make install
-  #
   # Configure CATPOO site
   #
   - name: Setup CATPOO repo
@@ -65,6 +53,18 @@
   #
   - cron: name="Create CATPOO TMPFS directory" special_time="reboot" job="mkdir /run/shm/catpoo"
   - cron: name="Create CATPOO TMPFS symlink"  special_time="reboot" job="ln -s /run/shm/catpoo {{ ansible_env.HOME }}/src/catpoo/www/shm"
+  #
+  # Build any 3rd party libraries necessary
+  #
+  - name: Build Thrift
+    command: "{{ item }}"
+    args:
+      chdir: "{{ ansible_env.HOME }}/src/catpoo/3rdparty/thrift"
+    with_items:
+    - ./bootstrap.sh
+    - ./configure --without-qt4 --without-csharp --without-java --without-erlang --without-perl --without-haskell --without-go --without-d --with-cpp
+    - make -j 4
+    - sudo make install
 
 
 # -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- #
