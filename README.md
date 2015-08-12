@@ -3,86 +3,33 @@
 This project utilizes a Rasperberry Pi for everything except sensor inputs.
 For all inputs and blinken lights, an Arduino Nano is used.
 
-## Preparing the Raspberry Pi
+# Required Parts
 
-First things first, let's install some packages:
+* Chassis
+    * Currently, I'm using the schematics from `docs/circle chassis/`.
+    * The actual chassis and stuff isn't really that important to this code,
+      so it won't be documented well until I'm settled on a final design.
+* Parts
+    * [Arduino Nano|https://www.arduino.cc/en/Main/arduinoBoardNano]
+    * [Raspberry Pi 2|https://www.raspberrypi.org/products/raspberry-pi-2-model-b/]
+        * Not technically necessary, but having a Pi 2 is nicer. Any Pi will do
+          if you got a different one laying around.
+    * [Pi NoIR camera|https://www.adafruit.com/products/1567]
+        * Cuz what's the point of a robot that can't see in the dark? How else
+          can one scare away one's girlfriend effectively?
+    * [IR Leds|https://www.adafruit.com/products/388]
+        * The more, the merrier
+    * Breadboards (just got a bunch)
+    * [Maestro server controller|https://www.pololu.com/product/1350]
+    * [2x Servos|https://www.pololu.com/product/1248]
+    * [Track links|https://www.pololu.com/product/415]
+    * [Sprockets|https://www.pololu.com/product/224]
 
-	sudo apt-get install xserver-xorg apache2 libapache2-mod-php5 php5-cli \
-	build-essential libtool autoconf automake libtool m4 gcc \
-	libcgicc5 libcgicc5-dev libcgicc-doc php-apc acl
+There are other miscellaneous things you'll need like extra wires, extra LEDs
+for whatever, and so on. This will be documented More Better™ later on.
 
-## Compiling Motion CGI application
+Or maybe not.
 
-	cd motion
-	mkdir build
-	cd build
-	../bootstrap
-	make
+# Installing
 
-## Database Setup
-
-Since everyone should hate Oracle, and fart in their general direction, we'll
-be using MariaDB.
-
-	echo "deb http://repository.pi3g.com/debian/ wheezy main" | \
-	sudo tee /etc/apt/sources.list.d/repository.pi3g.com.list
-	wget -O - http://repository.pi3g.com/pubkey | sudo apt-key add -
-	sudo apt-get update
-	sudo apt-get install mariadb-server mariadb-client
-
-I recommend not worrying about security on the database. The robot shouldn't be
-directly on the internet directly, so who cares?
-
-## Setup PHP website
-
-### Composer configuration
-
-GitHub will freak out once Composer starts without a valid auth token. Go to
-https://help.github.com/articles/creating-an-access-token-for-command-line-use/
-to learn how to create a token, then execute:
-
-	composer config --global github-oauth.github.com <TOKEN>
-
-Then we can install the vendors while grabbing a cup of coffee:
-
-	cd www
-	../composer.phar install
-
-### Cache configuration
-
-Now to fix up that damned cache directory. First we need to make sure that
-ACL is enabled on the root partion. Edit `/etc/fstab` to look like this:
-
-	proc            /proc           proc    defaults              0       0
-	/dev/mmcblk0p1  /boot           vfat    defaults              0       2
-	/dev/mmcblk0p2  /               ext4    defaults,noatime,acl  0       1
-
-Next, run the follow `setfacl` commands:
-
-	cd www/
-	mkdir app/cache
-	mkdir app/logs
-	sudo setfacl -R -m u:"`whoami`":rwX -m u:`whoami`:rwX app/cache app/logs
-	sudo setfacl -R -m u:"www-data":rwX -m u:`whoami`:rwX app/cache app/logs
-	sudo setfacl -dR -m u:"`whoami`":rwX -m u:`whoami`:rwX app/cache app/logs
-	sudo setfacl -dR -m u:"www-data":rwX -m u:`whoami`:rwX app/cache app/logs
-
-### Apache configuration
-
-Next we'll need to make sure that the appropriate Apache modules are enabled:
-
-	sudo a2enmod rewrite php5
-
-Disable the default Apache sites:
-
-	sudo a2dissite default
-	sudo a2dissite default-ssl
-
-Setup the Catpoo site by making a copy of `catpoo-site.default` to
-`catpoo-site`. Then make a symlink of that new file into
-`/etc/apache2/sites-available`. Then we need to enable that site and
-restart Apache:
-
-	sudo a2ensite catpoo-site
-	sudo service apache2 restart
-
+Read `bootstrap/INSTRUCTIONS.md`.
