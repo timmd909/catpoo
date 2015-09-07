@@ -29,7 +29,7 @@ for X in *.thrift; do
 	echo -en "\033[34;1mCreating \033[33;1m$X\033[34;1m..."
 	
 	# -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- -=- 
-	OUTPUT_DIR="../../lib/src/thrift"
+	OUTPUT_DIR="../../lib/thrift"
 	prepare_output_dir "$OUTPUT_DIR" 
 	thrift -r --strict --gen cpp -out "$OUTPUT_DIR" "$X"
 	

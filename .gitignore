@@ -3,10 +3,21 @@ node_modules
 /configure
 /autom4te.cache
 /m4
+/Makefile.in
 /aclocal.m4
-/config.h.in
-/config.log
-/config.status
+/config.*
+/depcomp
+/INSTALL
+/compile
+/install-sh
+/ltmain.sh
+/libtool
+/stamp-h1
+/missing
+
+Makefile
+.deps
+.dirstamp
 
 config/apache2.conf
 config/catpoo-site
@@ -16,8 +27,9 @@ erlide.log*
 .metadata
 rpc_monitor-*
 
-lib/src/thrift/*.cpp
-lib/src/thrift/*.h
+lib/thrift/*.cpp
+lib/thrift/*.h
+lib/Makefile.in
 
 motion/*.beam
 motion/Makefile.in
