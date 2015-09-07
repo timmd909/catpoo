@@ -1,14 +1,23 @@
 node_modules
 
+/configure
+/autom4te.cache
+/m4
+/aclocal.m4
+/config.h.in
+/config.log
+/config.status
+
 config/apache2.conf
 config/catpoo-site
 config/php.ini
-
 
 erlide.log*
 .metadata
 rpc_monitor-*
 
+lib/src/thrift/*.cpp
+lib/src/thrift/*.h
 
 motion/*.beam
 motion/Makefile.in
@@ -16,19 +25,9 @@ motion/build
 motion/config.*
 motion/m4
 motion/missing
-motion/thrift/*.beam
-motion/thrift/*.erl
-motion/thrift/*.hrl
 
-
-vision/thrift/*.cpp
-vision/thrift/*.h
 vision/*.o
-vision/thrift/*.o
-vision/thrift/Makefile
-vision/thrift/Makefile.in
 vision/.cproject
-vision/thrift/.deps
 vision/server
 vision/depcomp
 vision/stamp-h1
@@ -56,3 +55,5 @@ vision/src/Makefile
 vision/src/catpoo_vision
 
 .settings
+.buildpath
+
