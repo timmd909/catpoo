@@ -29,10 +29,8 @@ namespace CATPOO {
 		// this should be loaded from an external file in the future...
 		// but for now, I don't really change the servos out that often
 		// so I guess this'll do... :-/
-		const unsigned int FRONT_RIGHT = 0x2;
-		const unsigned int FRONT_LEFT  = 0x3;
-		const unsigned int BACK_LEFT   = 0x0;
-		const unsigned int BACK_RIGHT  = 0x1;
+		const unsigned int LEFT_SERVO   = 0x1;
+		const unsigned int RIGHT_SERVO  = 0x0;
 
 		void move(int direction);
 		void turn(int direction);

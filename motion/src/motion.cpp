@@ -41,7 +41,7 @@ int main (int argc, char **argv)
 
 		// grab input
 		form_iterator ic = cgi.getElement("command"),
-					  id = cgi.getElement("direction");
+						id = cgi.getElement("direction");
 
 		string command   = "";
 		int    direction = 0;
@@ -107,26 +107,17 @@ namespace CATPOO {
 			status(buffer.str());
 		}
 
-		void setAllWheels(unsigned int fr, unsigned int fl,
-				unsigned int bl, unsigned int br)
+		void setAllWheels(unsigned int right, unsigned int left)
 		{
 			unsigned char commands[3];
 			commands[0] = COMMAND_MINI_SSC;
 
-			commands[1] = FRONT_RIGHT;
-			commands[2] = fr;
+			commands[1] = RIGHT;
+			commands[2] = right;
 			execute(commands, 3);
 
-			commands[1] = FRONT_LEFT;
-			commands[2] = fl;
-			execute(commands, 3);
-
-			commands[1] = BACK_LEFT;
-			commands[2] = bl;
-			execute(commands, 3);
-
-			commands[1] = BACK_RIGHT;
-			commands[2] = br;
+			commands[1] = LEFT;
+			commands[2] = left;
 			execute(commands, 3);
 		}
 
@@ -135,11 +126,11 @@ namespace CATPOO {
 			direction = clamp(direction, -126, 126);
 
 			// determine values for front wheels
-			unsigned int frTarget = (127 - direction),
-					flTarget = (127 + direction);
+			unsigned int rightTarget = (127 - direction),
+					leftTarget = (127 + direction);
 
-			cout << "Moving " << direction <<  "FL=" << flTarget << " FR=" << frTarget << endl;
-			setAllWheels(frTarget, flTarget, flTarget, frTarget);
+			cout << "Moving " << direction <<  "Left=" << leftTarget << " Right=" << rightTarget << endl;
+			setAllWheels(leftTarget, rightTarget);
 
 		}
 
@@ -149,20 +140,18 @@ namespace CATPOO {
 			cout << "Turning " << direction << endl;
 
 			// determine values for front wheels
-			unsigned int frTarget = (127 - direction),
-				flTarget = (127 - direction);
+			unsigned int rightTarget = (127 - direction),
+				leftTarget = (127 - direction);
 
-			setAllWheels(frTarget, flTarget, flTarget, frTarget);
+			setAllWheels(leftTarget, rightTarget);
 		}
 
 		void stop(int channel)
 		{
 			// vector<unsigned char> commands;
 			unsigned char commands[] = {
-					COMMAND_SET_TARGET, FRONT_RIGHT, 0, 0,
-					COMMAND_SET_TARGET, FRONT_LEFT,  0, 0,
-					COMMAND_SET_TARGET, BACK_LEFT,   0, 0,
-					COMMAND_SET_TARGET, BACK_RIGHT,  0, 0
+				COMMAND_SET_TARGET, RIGHT, 0, 0,
+				COMMAND_SET_TARGET, LEFT,  0, 0
 			};
 			execute(commands, 4*4);
 		}
@@ -171,7 +160,7 @@ namespace CATPOO {
 		{
 			cout << "Stopping" << endl;
 
-			stop(0); stop(1); stop(2); stop(3);
+			stop(0); stop(1);
 		}
 	}
 }
