@@ -89,5 +89,12 @@
 #
 - name: Install Boost Libraries
   apt: name={{ item }}
-  with_items: 
+  with_items:
   - libboost-all-dev
+
+- name: Install C++ CGI library
+  apt: name={{ item }}
+  with_items:
+  - libcgicc5
+  - libcgicc5-dev
+

@@ -12,3 +12,6 @@
 
 - name: Install Vim
   apt: name=vim
+
+- name: Install Festival
+  apt: name=festival
