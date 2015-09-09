@@ -15,3 +15,35 @@
 
 - name: Install Festival
   apt: name=festival
+
+#
+# UV4L
+#
+- name: Install UV4L key 
+  apt_key: url=http://www.linux-projects.org/listing/uv4l_repo/lrkey.asc state=present validate_certs=no
+
+- name: Add UV4L Repo
+  lineinfile: dest=/etc/apt/sources.list.d/uv4l.list state=present line="deb http://www.linux-projects.org/listing/uv4l_repo/raspbian/ wheezy main" create=yes
+  
+- name: Update apt after adding UV4L
+  apt: update_cache=yes
+  
+- name: Install UV4L
+  apt: name={{ item }}
+  with_items:
+  - uv4l
+  - uv4l-raspicam
+  - uv4l-raspicam-extras
+  - uv4l-server
+  - uv4l-mjpegstream
+
+#
+# Streaming/video encoding
+#
+- name: "Install VLC and libraries"
+  apt: name={{ item }}
+  with_items:
+  - x264
+  - vlc-nox
+  - vlc
+
