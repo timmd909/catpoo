@@ -16,18 +16,21 @@
 - name: Install Festival
   apt: name=festival
 
+- name: Install Imagemagick
+  apt: name=imagemagick
+
 #
 # UV4L
 #
-- name: Install UV4L key 
+- name: Install UV4L key
   apt_key: url=http://www.linux-projects.org/listing/uv4l_repo/lrkey.asc state=present validate_certs=no
 
 - name: Add UV4L Repo
   lineinfile: dest=/etc/apt/sources.list.d/uv4l.list state=present line="deb http://www.linux-projects.org/listing/uv4l_repo/raspbian/ wheezy main" create=yes
-  
+
 - name: Update apt after adding UV4L
   apt: update_cache=yes
-  
+
 - name: Install UV4L
   apt: name={{ item }}
   with_items:
@@ -37,13 +40,32 @@
   - uv4l-server
   - uv4l-mjpegstream
 
+- name: Configure UV4L
+  lineinfile: dest=/etc/uv4l/uv4l-raspicam.conf state=present line="{{ item }}" create=yes
+  with_items:
+  - "driver = raspicam"
+  - "server-option = --port=8090"
+  - "enable-server = auto"
+  - "width = 640"
+  - "height = 360"
+  - "framerate = 15"
+
+
+
 #
 # Streaming/video encoding
 #
 - name: "Install VLC and libraries"
   apt: name={{ item }}
   with_items:
-  - x264
   - vlc-nox
   - vlc
+
+- name: "Video codec libraries"
+  apt: name={{ item }}
+  with_items:
+  - libv4l-dev
+  - libjpeg8-dev
+  - libmp4v2-2
+  - libmp4v2-dev
 

@@ -12,3 +12,8 @@
     - include: tasks/php.yml
     - include: tasks/apache.yml
     - include: tasks/gnome.yml
+
+- hosts: catpoo
+  sudo: no
+  tasks:
+    - include: tasks/ffmpeg.yml
