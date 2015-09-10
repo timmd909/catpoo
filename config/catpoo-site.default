@@ -7,7 +7,7 @@
 	</Directory>
 
 	DocumentRoot /home/tim/src/catpoo/www/web
-	<Directory /var/www/>
+	<Directory /home/tim/src/catpoo/www/web>
 		Options +ExecCGI Indexes FollowSymLinks MultiViews
 		AllowOverride All
 		Order allow,deny
