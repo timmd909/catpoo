@@ -52,7 +52,11 @@
   - name: Disable screen startup message
     lineinfile: dest={{ ansible_env.HOME }}/.screenrc line="startup_message off" create=yes
   - name: Vim configuration settings
-    lineinfile: dest={{ ansible_env.HOME }}/.vimrc line="set tabstop=4" create=yes
+    lineinfile: dest={{ ansible_env.HOME }}/.vimrc line="{{ item }}" create=yes
+    with_items:
+    - "set tabstop=2"
+    - "syntax on"
+    - "colorscheme elflord"
   #
   # Clean out and clone repo
   #
