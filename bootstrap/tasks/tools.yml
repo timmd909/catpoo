@@ -40,18 +40,6 @@
   - uv4l-server
   - uv4l-mjpegstream
 
-- name: Configure UV4L
-  lineinfile: dest=/etc/uv4l/uv4l-raspicam.conf state=present line="{{ item }}" create=yes
-  with_items:
-  - "driver = raspicam"
-  - "server-option = --port=8090"
-  - "enable-server = auto"
-  - "width = 640"
-  - "height = 360"
-  - "framerate = 15"
-
-
-
 #
 # Streaming/video encoding
 #

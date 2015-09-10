@@ -10,7 +10,7 @@
     - chmod +x hostapd
     - mv hostapd /usr/sbin/hostapd
     - rm adafruit_hostapd_14128.zip
-
+    
 - name: Install DHCPD
   apt: name=isc-dhcp-server
 
