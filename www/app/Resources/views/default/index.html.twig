@@ -2,4 +2,52 @@
 
 {% block body %}
 
+<div class="grid">
+	<div class="col-sm-3">
+		<h1 class="logo">CATPOO v3</h1>
+	</div>
+	<div class="col-xs-12 col-sm-9">
+		<div class="btn-group btn-group-justified black-shadow">
+			<div class="btn-group" role="group">
+				<button type="button" class="btn btn-default btn-primary">
+					<i class="fa fa-question">
+						<span class="hidden-xs">
+							Help
+						</span>
+					</i>
+				</button>
+			</div>
+			<div class="btn-group" role="group">
+				<button type="button" class="btn btn-default btn-danger">
+					<i class="fa fa-warning">
+						<span class="hidden-xs">
+							Panic
+						</span>
+					</i>
+				</button>
+			</div>
+			<div class="btn-group" role="group">
+				<button type="button" class="btn btn-default btn-warning">
+					<i class="fa fa-lightbulb-o">
+						<span class="hidden-xs">IR Headlight</span>
+					</i>
+				</button>
+			</div>
+			<div class="btn-group" role="group">
+				<button type="button" class="btn btn-default btn-info">
+					<i class="fa fa-info">
+						<span class="hidden-xs">Info</span>
+					</i>
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-xs-10 col-xs-offset-1">
+		<img class="video-screen black-shadow" src="/stream.mjpeg" draggable="false" />
+	</div>
+</div>
+
+
+
 {% endblock %}

@@ -14,7 +14,10 @@
 		allow from all
 	</Directory>
 
-	ErrorLog ${APACHE_LOG_DIR}/error.log
+	ProxyPass /stream.mjpeg http://localhost:8090/stream/video.mjpeg
+	ProxyPassReverse /stream.mjpeg http://localhost:8090/stream/video.mjpeg
+
+ErrorLog ${APACHE_LOG_DIR}/error.log
 
 	# Possible values include: debug, info, notice, warn, error, crit,
 	# alert, emerg.

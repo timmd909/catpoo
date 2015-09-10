@@ -68,7 +68,10 @@ lib/Makefile.in
 
 /www/web/bundles/bootstrap
 
+# Miscellaneous junk
 .settings
 .buildpath
-
 www/shm
+*.komodoproject
+.DS_Store
+._.DS_Store
