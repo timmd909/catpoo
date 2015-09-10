@@ -1,0 +1,44 @@
+#!/bin/bash
+
+pushd "`dirname $0`" > /dev/null
+
+function setLight() {
+	GPIO="$1"
+	STATE="$2"
+
+	VALUE_FILE="/sys/class/gpio/gpio$GPIO/value"
+
+	if [ ! -e "$VALUE_FILE" ]; then
+		# register it now
+		echo $GPIO > /sys/class/gpio/export
+		sleep 1s
+		echo 'out' > "/sys/class/gpio/gpio$GPIO/direction"
+		sleep 1s
+	fi
+
+	echo $STATE > $VALUE_FILE
+}
+
+case $1 in
+	yellow)
+		setLight 6 $2
+	;;
+
+	red)
+		setLight 26 $2
+	;;
+
+	ir)
+		setLight 19 $2
+		setLight 13 $2
+		setLight 5 $2
+		setLight 22 $2
+	;;
+
+	*)
+		echo "$1 not recognized"
+		exit 2
+	;;
+esac
+
+popd > /dev/null
