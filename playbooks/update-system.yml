@@ -6,6 +6,6 @@
       apt: update_cache=yes
     - name: Upgrade APT
       apt: upgrade=yes
-    - name: Reboot system
-      command: reboot 
+#    - name: Reboot system
+#      command: reboot
 
