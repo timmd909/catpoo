@@ -71,3 +71,4 @@ lib/Makefile.in
 .settings
 .buildpath
 
+www/shm
