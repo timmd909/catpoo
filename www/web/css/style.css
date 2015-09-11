@@ -23,3 +23,7 @@ body {
 	display: block;
 	margin: 5px 0;
 }
+
+.directional-pad .btn {
+	margin: 10px 0;
+}
