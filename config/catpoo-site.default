@@ -6,18 +6,23 @@
 		AllowOverride None
 	</Directory>
 
+	# Root directory
 	DocumentRoot /home/tim/src/catpoo/www/web
 	<Directory /home/tim/src/catpoo/www/web>
-		Options +ExecCGI Indexes FollowSymLinks MultiViews
+		Options Indexes FollowSymLinks MultiViews +ExecCGI
+		AddHandler cgi-script motion .cgi
 		AllowOverride All
 		Order allow,deny
 		allow from all
 	</Directory>
 
+	# Pass-through for the MJPEG stream
 	ProxyPass /stream.mjpeg http://localhost:8090/stream/video.mjpeg
 	ProxyPassReverse /stream.mjpeg http://localhost:8090/stream/video.mjpeg
 
-ErrorLog ${APACHE_LOG_DIR}/error.log
+	# Thinking of disabling these, or at least putting them in the SHM
+	# partition in the near future.
+	ErrorLog ${APACHE_LOG_DIR}/error.log
 
 	# Possible values include: debug, info, notice, warn, error, crit,
 	# alert, emerg.

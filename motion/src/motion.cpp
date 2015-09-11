@@ -39,6 +39,8 @@ int main (int argc, char **argv)
 		cout << cgicc::html() << cgicc::head(cgicc::title("CATPOO Motion Response")) << endl;
 		cout << cgicc::body() << endl;
 
+		cout << "<p>Servo device: " << CATPOO::commonConstants().CATPOO_SERVO_DEV << "</p>\n";
+
 		// grab input
 		form_iterator
 			ic = cgi.getElement("command"),
