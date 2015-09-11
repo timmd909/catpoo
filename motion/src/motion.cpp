@@ -134,8 +134,8 @@ namespace CATPOO {
 			direction = clamp(direction, -126, 126);
 
 			// determine values for front wheels
-			unsigned int rightTarget = (127 - direction),
-					leftTarget = (127 + direction);
+			unsigned int rightTarget = (127 + direction),
+					leftTarget = (127 - direction);
 
 			cout
 				<< "Moving " << direction <<  "<br/>\n"
