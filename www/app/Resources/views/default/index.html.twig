@@ -59,7 +59,7 @@
 <div class="grid directional-pad">
 
 	<div class="col-xs-4 col-xs-offset-4 col-sm-2 col-sm-offset-5">
-		<a class="btn btn-default btn-block">
+		<a class="btn btn-default btn-block" data-bind="click: moveForward">
 			<i class="fa fa-4x fa-arrow-up"></i>
 		</a>
 	</div>
@@ -67,17 +67,17 @@
 	<div class="clearfix"></div>
 
 	<div class="col-xs-4 col-sm-2 col-sm-offset-3">
-		<a class="btn btn-default btn-block">
+		<a class="btn btn-default btn-block" data-bind="click: turnLeft">
 			<i class="fa fa-4x fa-arrow-left"></i>
 		</a>
 	</div>
 	<div class="col-xs-4 col-sm-2">
-		<a class="btn btn-default btn-block btn-danger">
+		<a class="btn btn-default btn-block btn-danger" data-bind="click: stopMoving">
 			<i class="fa fa-4x fa-close"></i>
 		</a>
 	</div>
 	<div class="col-xs-4 col-sm-2">
-		<a class="btn btn-default btn-block">
+		<a class="btn btn-default btn-block" data-bind="click: turnRight">
 			<i class="fa fa-4x fa-arrow-right"></i>
 		</a>
 	</div>
@@ -85,7 +85,7 @@
 	<div class="clearfix"></div>
 
 	<div class="col-xs-4 col-xs-offset-4 col-sm-2 col-sm-offset-5">
-		<a class="btn btn-default btn-block">
+		<a class="btn btn-default btn-block" data-bind="click: moveBackward">
 			<i class="fa fa-4x fa-arrow-down"></i>
 		</a>
 	</div>

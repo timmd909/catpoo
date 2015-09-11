@@ -2,12 +2,12 @@
 
 pushd "`dirname $0`/../3rdparty" > /dev/null
 
-./maestro-set-target.sh /dev/ttyACM1 0 -600
-./maestro-set-target.sh /dev/ttyACM1 1 600
+./maestro-set-target.sh /dev/ttyACM0 0 -600
+./maestro-set-target.sh /dev/ttyACM0 1 600
 
 sleep 2s
 
-./maestro-set-target.sh /dev/ttyACM1 0 0
-./maestro-set-target.sh /dev/ttyACM1 1 0
+./maestro-set-target.sh /dev/ttyACM0 0 0
+./maestro-set-target.sh /dev/ttyACM0 1 0
 
 popd > /dev/null

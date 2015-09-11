@@ -7,6 +7,7 @@
 //============================================================================
 
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include <fstream>
 #include <sstream>
@@ -35,11 +36,12 @@ int main (int argc, char **argv)
 		Cgicc cgi;
 
 		// HTML output start up
-		cout << HTTPHTMLHeader() << endl;
-		cout << cgicc::html() << cgicc::head(cgicc::title("CATPOO Motion Response")) << endl;
-		cout << cgicc::body() << endl;
+		cout
+			<< HTTPHTMLHeader() << endl
+			<< cgicc::html() << cgicc::head(cgicc::title("CATPOO Motion Response")) << endl
+			<< cgicc::body() << endl << "<pre>" << endl;
 
-		cout << "<p>Servo device: " << CATPOO::commonConstants().CATPOO_SERVO_DEV << "</p>\n";
+		cout << "Servo device: " << CATPOO::commonConstants().CATPOO_SERVO_DEV << "\n";
 
 		// grab input
 		form_iterator
@@ -52,10 +54,9 @@ int main (int argc, char **argv)
 		if (ic != cgi.getElements().end()) command = **ic;
 		if (id != cgi.getElements().end()) direction = std::atoi((**id).c_str());
 
-		cout << "<table>"
-			<< "<tr><th>Command</th><td>" << command << "</td></tr>\n"
-			<< "<tr><th>Direction</th><td>" << direction << "</td></tr>"
-			<< "</table><hr />";
+		cout
+			<< "Command:   " << command << endl
+			<< "Direction: " << direction << endl;
 
 		// process command
 		if (command == "move") {
@@ -65,10 +66,12 @@ int main (int argc, char **argv)
 		} else if (command == "stop") {
 			CATPOO::motion::stop();
 		} else {
-			cout << "<h1>Error: &ldquo;" << command << "&rdquo; not recognized</h1>";
+			cout << "Error: È" << command << "Ç not recognized\n";
 		} // switch
 
-		cout << cgicc::body() << cgicc::html();
+		cout
+			<< "</pre>" << endl
+			<< cgicc::body() << cgicc::html();
 
 	} catch (exception &e) {
 		std::cout << "Caught error: " << e.what() << endl;
@@ -83,7 +86,7 @@ namespace CATPOO {
 
 		void status(string message)
 		{
-			cout << "<div>" << message << "</div>\n";
+			cout << "--- " << message << "\n";
 		}
 
 		template <typename T>
@@ -99,16 +102,17 @@ namespace CATPOO {
 			std::fstream fs(CATPOO::commonConstants().CATPOO_SERVO_DEV.c_str());
 			if (!fs.is_open()) {
 				status("Unable to open input");
-			} else {
-				status("Opened serial port");
 			}
 
 			fs.write((const char*)commands, count);
 
-			std::stringbuf buffer;
-			std::ostream os (&buffer);
-			os << "Wrote " << count << " bytes";
-			status(buffer.str());
+			cout << "Sent: ";
+			for (int i = 0; i < count; i++) {
+				cout
+					<< std::setw(2) << std::setfill('0') << std::hex
+					<< ((int)commands[i]) << " ";
+			}
+			cout << endl;
 		}
 
 		void setAllWheels(unsigned int right, unsigned int left)
@@ -133,7 +137,9 @@ namespace CATPOO {
 			unsigned int rightTarget = (127 - direction),
 					leftTarget = (127 + direction);
 
-			cout << "Moving " << direction <<  "Left=" << leftTarget << " Right=" << rightTarget << endl;
+			cout
+				<< "Moving " << direction <<  "<br/>\n"
+				<< "Left=" << leftTarget << " Right=" << rightTarget << endl;
 			setAllWheels(leftTarget, rightTarget);
 
 		}
@@ -157,7 +163,7 @@ namespace CATPOO {
 				COMMAND_SET_TARGET, CATPOO::commonConstants().CATPOO_SERVO_RIGHT, 0, 0,
 				COMMAND_SET_TARGET, CATPOO::commonConstants().CATPOO_SERVO_LEFT,  0, 0
 			};
-			execute(commands, 4*4);
+			execute(commands, 8);
 		}
 
 		void stop()
