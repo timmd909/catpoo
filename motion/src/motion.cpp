@@ -40,8 +40,9 @@ int main (int argc, char **argv)
 		cout << cgicc::body() << endl;
 
 		// grab input
-		form_iterator ic = cgi.getElement("command"),
-						id = cgi.getElement("direction");
+		form_iterator
+			ic = cgi.getElement("command"),
+			id = cgi.getElement("direction");
 
 		string command   = "";
 		int    direction = 0;
@@ -50,9 +51,9 @@ int main (int argc, char **argv)
 		if (id != cgi.getElements().end()) direction = std::atoi((**id).c_str());
 
 		cout << "<table>"
-			 << "<tr><th>Command</th><td>" << command << "</td></tr>\n"
-			 << "<tr><th>Direction</th><td>" << direction << "</td></tr>"
-			 << "</table><hr />";
+			<< "<tr><th>Command</th><td>" << command << "</td></tr>\n"
+			<< "<tr><th>Direction</th><td>" << direction << "</td></tr>"
+			<< "</table><hr />";
 
 		// process command
 		if (command == "move") {
@@ -75,6 +76,7 @@ int main (int argc, char **argv)
 }
 
 namespace CATPOO {
+
 	namespace motion {
 
 		void status(string message)
@@ -92,7 +94,7 @@ namespace CATPOO {
 
 		void execute(unsigned char *commands, int count)
 		{
-			std::fstream fs(DEVICE.c_str());
+			std::fstream fs(CATPOO::commonConstants().CATPOO_SERVO_DEV.c_str());
 			if (!fs.is_open()) {
 				status("Unable to open input");
 			} else {
@@ -112,11 +114,11 @@ namespace CATPOO {
 			unsigned char commands[3];
 			commands[0] = COMMAND_MINI_SSC;
 
-			commands[1] = RIGHT;
+			commands[1] = CATPOO::commonConstants().CATPOO_SERVO_RIGHT;
 			commands[2] = right;
 			execute(commands, 3);
 
-			commands[1] = LEFT;
+			commands[1] = CATPOO::commonConstants().CATPOO_SERVO_LEFT;
 			commands[2] = left;
 			execute(commands, 3);
 		}
@@ -150,8 +152,8 @@ namespace CATPOO {
 		{
 			// vector<unsigned char> commands;
 			unsigned char commands[] = {
-				COMMAND_SET_TARGET, RIGHT, 0, 0,
-				COMMAND_SET_TARGET, LEFT,  0, 0
+				COMMAND_SET_TARGET, CATPOO::commonConstants().CATPOO_SERVO_RIGHT, 0, 0,
+				COMMAND_SET_TARGET, CATPOO::commonConstants().CATPOO_SERVO_LEFT,  0, 0
 			};
 			execute(commands, 4*4);
 		}

@@ -23,7 +23,7 @@ LT_INIT
 
 # Checks for libraries.
 # FIXME: Replace `main' with a function in `-lthrift': (reminder nm -Ca)
-# # AC_CHECK_LIB([thrift], [main])
+AC_CHECK_LIB([thrift], [_init])
 
 # Checks for header files.
 AC_CHECK_HEADERS([unistd.h])
@@ -33,8 +33,10 @@ AC_CHECK_HEADERS([unistd.h])
 
 # Checks for library functions.
 
+# Generate output
 AC_CONFIG_FILES([
 	Makefile
 	lib/Makefile
+	motion/Makefile
 ])
 AC_OUTPUT

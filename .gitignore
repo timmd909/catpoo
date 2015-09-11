@@ -1,74 +1,58 @@
 node_modules
 
-/configure
-/autom4te.cache
-/m4
-/Makefile.in
-/aclocal.m4
-/config.*
-/depcomp
 /INSTALL
-/compile
-/install-sh
-/ltmain.sh
-/libtool
-/stamp-h1
-/missing
 
+#
+# Build artifacts
+#
+/configure
 Makefile
+Makefile.in
+aclocal.m4
+autom4te.cache
+config.*
+compile
+depcomp
+install-sh
+libtool
+ltmain.sh
+m4
+missing
+stamp-h1
 .deps
+.libs
 .dirstamp
+*.a
+*.o
 
+#
+# Internal library
+#
+/lib/thrift/*
+
+#
+# Web/Symfony files to ignore
+#
+/www/web/bundles/bootstrap
+
+#
+# Motion CGI app
+#
+/motion/motion
+
+#
+# Configuration files
+#
 config/apache2.conf
 config/catpoo-site
 config/php.ini
 
+#
+# Miscellaneous junk
+#
 erlide.log*
 .metadata
 rpc_monitor-*
-
-lib/thrift/*.cpp
-lib/thrift/*.h
-lib/Makefile.in
-
-/motion/*.beam
-/motion/Makefile.in
-/motion/build
-/motion/config.*
-/motion/m4
-/motion/missing
-
-/vision/*.o
-/vision/.cproject
-/vision/server
-/vision/depcomp
-/vision/stamp-h1
-/vision/autom4te.cache
-/vision/Makefile.in
-/vision/configure
-/vision/m4
-/vision/.project
-/vision/ltmain.sh
-/vision/aclocal.m4
-/vision/config.h.in
-/vision/config.guess
-/vision/config.sub
-/vision/install-sh
-/vision/missing
-/vision/src/Makefile.in
-/vision/src/*.o
-/vision/Makefile
-/vision/config.h
-/vision/config.log
-/vision/config.status
-/vision/libtool
-/vision/src/.deps/
-/vision/src/Makefile
-/vision/src/catpoo_vision
-
-/www/web/bundles/bootstrap
-
-# Miscellaneous junk
 .settings
 .buildpath
 www/shm

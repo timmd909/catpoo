@@ -19,23 +19,17 @@ typedef signed char    s8;
 typedef signed short   s16;
 
 #include "Maestro/protocol.h"
+#include "thrift/common_constants.h"
 
 namespace CATPOO {
 
 	namespace motion {
 
-		const std::string DEVICE = "/dev/ttyACM0";
-
-		// this should be loaded from an external file in the future...
-		// but for now, I don't really change the servos out that often
-		// so I guess this'll do... :-/
-		const unsigned int LEFT_SERVO   = 0x1;
-		const unsigned int RIGHT_SERVO  = 0x0;
-
 		void move(int direction);
 		void turn(int direction);
 		void stop();
 	}
+
 }
 
 #endif

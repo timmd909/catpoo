@@ -1,7 +1,7 @@
 bin_PROGRAMS = catpoo_motion
 
 catpoo_motion_SOURCES = \
-	motion.cpp motion.h 
+	motion.cpp motion.h
 
 catpoo_motion_CPPFLAGS = \
 	-I $(srcdir)/../../3rdparty/pololu-usb-sdk \
@@ -9,4 +9,5 @@ catpoo_motion_CPPFLAGS = \
 
 catpoo_motion_LDADD = \
 	-lcgicc \
-	-lstdc++
+	-lstdc++ \
+	-l../lib/libcatpoo.la
