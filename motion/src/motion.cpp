@@ -150,8 +150,8 @@ namespace CATPOO {
 			cout << "Turning " << direction << endl;
 
 			// determine values for front wheels
-			unsigned int rightTarget = (127 - direction),
-				leftTarget = (127 - direction);
+			unsigned int rightTarget = (127 + direction),
+				leftTarget = (127 + direction);
 
 			setAllWheels(leftTarget, rightTarget);
 		}

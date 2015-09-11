@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/bash -e
 #
 # rc.local
 #
@@ -18,5 +18,23 @@ if [ "$_IP" ]; then
 fi
 
 cat /etc/iptables.rules | iptables-restore
+
+# Setup GPIO
+GPIO_CHANNELS="19 13 5 22 6 26"
+for GPIO in $GPIO_CHANNELS; do
+	echo $GPIO > /sys/class/gpio/export
+done
+
+sleep 1s
+
+for GPIO in $GPIO_CHANNELS; do
+	echo out > /sys/class/gpio/gpio$GPIO/direction
+done
+
+sleep 1s
+
+chgrp -R gpio /sys/class/gpio/gpio[0-9]*
+chmod 755 /sys/class/gpio
+chmod g+rw /sys/class/gpio/gpio[0-9]*/*
 
 exit 0

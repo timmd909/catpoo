@@ -49,6 +49,13 @@ function (ko, _) {
 		ajaxMotion('stop', 0);
 	}
 
+	function toggleIR() {
+		$.ajax({
+			'url': '../toggle-ir.cgi',
+			'dataType': 'text'
+		});
+	}
+
 	var viewModel = {
 		moving: ko.observable(0.0),
 		turning: ko.observable(0.0),
@@ -62,7 +69,8 @@ function (ko, _) {
 		moveBackward: moveBackward,
 		turnLeft: turnLeft,
 		turnRight: turnRight,
-		stopMoving: stopMoving
+		stopMoving: stopMoving,
+		toggleIR: toggleIR
 	};
 
 	ko.applyBindings(viewModel);
