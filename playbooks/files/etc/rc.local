@@ -31,10 +31,11 @@ for GPIO in $GPIO_CHANNELS; do
 	echo out > /sys/class/gpio/gpio$GPIO/direction
 done
 
-sleep 1s
+sleep 2s
 
-chgrp -R gpio /sys/class/gpio/gpio[0-9]*
+chgrp -R gpio /sys/class/gpio/gpio[0-9]*/*
 chmod 755 /sys/class/gpio
 chmod g+rw /sys/class/gpio/gpio[0-9]*/*
 
 exit 0
+
