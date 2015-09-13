@@ -90,10 +90,15 @@
     - sudo setfacl -R -d -m www-data:rwx {{ ansible_env.HOME }}/src/catpoo/www/app/cache {{ ansible_env.HOME }}/src/catpoo/www/app/logs
     - sudo setfacl -R -m "{{ ansible_env.USER}}:rwx" {{ ansible_env.HOME }}/src/catpoo/www/app/cache {{ ansible_env.HOME }}/src/catpoo/www/app/logs
     - sudo setfacl -R -d -m "{{ ansible_env.USER}}:rwx" {{ ansible_env.HOME }}/src/catpoo/www/app/cache {{ ansible_env.HOME }}/src/catpoo/www/app/logs
-  - command: sudo rm -f /etc/apache2/sites-available/catpoo
-  - command: sudo a2dissite 000-default
-  - command: sudo a2ensite catpoo-site
-  - command: sudo service apache2 restart
+  - name: "Configure Apache"
+    command: "{{ item }}"
+    with_items:
+    - "sudo rm -f /etc/apache2/sites-available/catpoo"
+    - "sudo a2dissite 000-default"
+    - "sudo a2ensite catpoo-site"
+    - "sudo a2enmod proxy"
+    - "sudo a2enmod proxy_http"
+    - "sudo service apache2 restart"
   #
   # SHM configuration
   #
