@@ -2,17 +2,17 @@
 
 | Device       | Port | I | O | A | D | Description                        |
 |--------------|------|---|---|---|---|------------------------------------|
-| Arudino      |      | X |   | X |   | Proximity Sensor (front)
-| Arudino      |      | X |   | X |   | Proximity Sensor (left)
-| Arudino      |      | X |   | X |   | Proximity Sensor (right)
-| Arudino      |      | X |   | X |   | Proximity Sensor (back)
-| Arudino      |      | X |   | X |   | Audio input
-| Arudino      |      | X |   | X |   | Alcohol sensor
-| Arudino      |      | X |   | X |   | Smoke sensor
-| Arudino      |      | X |   |   | X | Motion sensor
-| Arudino      |      |   | X |   | X | Alcohol detected
-| Arudino      |      |   | X |   | X | Smoke detected
-| Arudino      |      |   | X |   | X | Motion sensor triggered
+| Arduino      |      | X |   | X |   | Proximity Sensor (front)
+| Arduino      |      | X |   | X |   | Proximity Sensor (left)
+| Arduino      |      | X |   | X |   | Proximity Sensor (right)
+| Arduino      |      | X |   | X |   | Proximity Sensor (back)
+| Arduino      |      | X |   | X |   | Audio input
+| Arduino      |      | X |   | X |   | Alcohol sensor
+| Arduino      |      | X |   | X |   | Smoke sensor
+| Arduino      |      | X |   |   | X | Motion sensor
+| Arduino      |      |   | X |   | X | Alcohol detected
+| Arduino      |      |   | X |   | X | Smoke detected
+| Arduino      |      |   | X |   | X | Motion sensor triggered
 | Raspberry Pi |      |   | X |   | X | Ethernet connected
 | Raspberry Pi |      |   | X |   | X | WiFi connected
 | Raspberry Pi |      |   | X |   | X | WAP enabled
