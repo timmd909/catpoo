@@ -2,27 +2,27 @@
 
 | Device       | Port | I | O | A | D | Description                        |
 |--------------|------|---|---|---|---|------------------------------------|
-| Arduino      |      | X |   | X |   | Proximity Sensor (front)
-| Arduino      |      | X |   | X |   | Proximity Sensor (left)
-| Arduino      |      | X |   | X |   | Proximity Sensor (right)
-| Arduino      |      | X |   | X |   | Proximity Sensor (back)
-| Arduino      |      | X |   | X |   | Audio input
-| Arduino      |      | X |   | X |   | Alcohol sensor
-| Arduino      |      | X |   | X |   | Smoke sensor
-| Arduino      |      | X |   |   | X | Motion sensor
-| Arduino      |      |   | X |   | X | Alcohol detected
-| Arduino      |      |   | X |   | X | Smoke detected
-| Arduino      |      |   | X |   | X | Motion sensor triggered
-| Raspberry Pi |      |   | X |   | X | Ethernet connected
-| Raspberry Pi |      |   | X |   | X | WiFi connected
-| Raspberry Pi |      |   | X |   | X | WAP enabled
-| Raspberry Pi |      |   | X |   | X | Servo command activity
-| Raspberry Pi |      | X |   |   | X | Reset WAP
-| Raspberry Pi |      | X |   |   | X | IR flood light toggle
-| Raspberry Pi |      | X |   |   | X | Safe shutdown
-| Raspberry Pi |      | X |   |   | X | Unassigned momentary switch #1
-| Raspberry Pi |      | X |   |   | X | Unassigned momentary switch #2
-| Raspberry Pi |      | X |   |   | X | Unassigned momentary switch #3
+| Arduino      |  A0  | X |   | X |   | Proximity Sensor (front)
+| Arduino      |  A1  | X |   | X |   | Proximity Sensor (left)
+| Arduino      |  A2  | X |   | X |   | Proximity Sensor (right)
+| Arduino      |  A3  | X |   | X |   | Proximity Sensor (back)
+| Arduino      |  A4  | X |   | X |   | Audio input
+| Arduino      |  A5  | X |   | X |   | Alcohol sensor
+| Arduino      |  A6  | X |   | X |   | Smoke sensor
+| Arduino      |   7  | X |   |   | X | Motion sensor
+| Arduino      |   8  |   | X |   | X | Alcohol detected
+| Arduino      |   9  |   | X |   | X | Smoke detected
+| Arduino      |  10  |   | X |   | X | Motion sensor triggered
+| Raspberry Pi |   5  |   | X |   | X | Ethernet connected
+| Raspberry Pi |   6  |   | X |   | X | WiFi connected
+| Raspberry Pi |  13  |   | X |   | X | WAP enabled
+| Raspberry Pi |  19  |   | X |   | X | Servo command activity
+| Raspberry Pi |  17  | X |   |   | X | Reset WAP
+| Raspberry Pi |  27  | X |   |   | X | IR flood light toggle
+| Raspberry Pi |  22  | X |   |   | X | Safe shutdown
+| Raspberry Pi |  26  | X |   |   | X | Unassigned momentary switch #1
+| Raspberry Pi |  20  | X |   |   | X | Unassigned momentary switch #2
+| Raspberry Pi |  21  | X |   |   | X | Unassigned momentary switch #3
 
 
 
