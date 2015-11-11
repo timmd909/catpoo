@@ -31,18 +31,22 @@ function (ko, _) {
 
 	function moveForward() {
 		ajaxMotion('move', 200);
+		setTimeout(stopMoving, 500);
 	}
 
 	function moveBackward() {
 		ajaxMotion('move', -200);
+		setTimeout(stopMoving, 500);
 	}
 
 	function turnLeft() {
-		ajaxMotion('turn', -200);
+		ajaxMotion('turn', -70);
+		setTimeout(stopMoving, 100);
 	}
 
 	function turnRight() {
-		ajaxMotion('turn', 200);
+		ajaxMotion('turn', 70);
+		setTimeout(stopMoving, 100);
 	}
 
 	function stopMoving() {
