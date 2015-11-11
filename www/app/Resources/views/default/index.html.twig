@@ -2,96 +2,11 @@
 
 {% block body %}
 
-<div class="grid">
-	<div class="col-sm-3">
-		<h1 class="logo">CATPOO v3</h1>
-	</div>
-	<div class="col-xs-12 col-sm-9">
-		<div class="btn-group btn-group-justified black-shadow">
-			<div class="btn-group" role="group">
-				<button type="button" class="btn btn-default btn-primary">
-					<i class="fa fa-question">
-						<span class="hidden-xs">
-							Help
-						</span>
-					</i>
-				</button>
-			</div>
-			<div class="btn-group" role="group">
-				<button type="button" class="btn btn-default btn-danger">
-					<i class="fa fa-warning">
-						<span class="hidden-xs">
-							Panic
-						</span>
-					</i>
-				</button>
-			</div>
-			<div class="btn-group" role="group">
-				<button type="button" class="btn btn-default btn-warning" data-bind="click: toggleIR">
-					<i class="fa fa-lightbulb-o">
-						<span class="hidden-xs">IR Headlight</span>
-					</i>
-				</button>
-			</div>
-			<div class="btn-group" role="group">
-				<button type="button" class="btn btn-default btn-info">
-					<i class="fa fa-info">
-						<span class="hidden-xs">Info</span>
-					</i>
-				</button>
-			</div>
-		</div>
-	</div>
+{% include 'partials/video-screen.html.twig' %}
 
+<div  class="container-fluid">
+	{% include 'partials/header.html.twig' %}
+<!--	{% include 'partials/directional-pad.html.twig' %}-->
 </div>
-
-<div class="grid clearfix">
-	<div class="col-xs-10 col-xs-offset-1">
-		<img
-			class="video-screen black-shadow"
-			src="/stream.mjpeg"
-			draggable="true" />
-	</div>
-</div>
-
-<div class="clearfix"></div>
-
-<div class="grid directional-pad">
-
-	<div class="col-xs-4 col-xs-offset-4 col-sm-2 col-sm-offset-5">
-		<a class="btn btn-default btn-block" data-bind="click: moveForward">
-			<i class="fa fa-4x fa-arrow-up"></i>
-		</a>
-	</div>
-
-	<div class="clearfix"></div>
-
-	<div class="col-xs-4 col-sm-2 col-sm-offset-3">
-		<a class="btn btn-default btn-block" data-bind="click: turnLeft">
-			<i class="fa fa-4x fa-arrow-left"></i>
-		</a>
-	</div>
-	<div class="col-xs-4 col-sm-2">
-		<a class="btn btn-default btn-block btn-danger" data-bind="click: stopMoving">
-			<i class="fa fa-4x fa-close"></i>
-		</a>
-	</div>
-	<div class="col-xs-4 col-sm-2">
-		<a class="btn btn-default btn-block" data-bind="click: turnRight">
-			<i class="fa fa-4x fa-arrow-right"></i>
-		</a>
-	</div>
-
-	<div class="clearfix"></div>
-
-	<div class="col-xs-4 col-xs-offset-4 col-sm-2 col-sm-offset-5">
-		<a class="btn btn-default btn-block" data-bind="click: moveBackward">
-			<i class="fa fa-4x fa-arrow-down"></i>
-		</a>
-	</div>
-
-
-</div>
-
 
 {% endblock %}

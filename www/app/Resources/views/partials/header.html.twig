@@ -1,0 +1,36 @@
+{% macro navbar_link(href, label, icon) %}
+<li>
+	<a class="btn" href="{{ href }}"><i class="fa fa-{{ icon }}"></i> {{ label }}</a>
+</li>
+{% endmacro %}
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container-fluid">
+
+		<div class="navbar-header">
+			<button type="button"
+							class="navbar-toggle collapsed"
+							data-toggle="collapse"
+							data-target="#catpoo-navbar"
+							aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">CATPOO v3</a>
+		</div>
+
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="catpoo-navbar">
+      <ul class="nav navbar-nav">
+				{{ _self.navbar_link('#', 'Help', 'question') }}
+				{{ _self.navbar_link('#', 'Panic', 'warning') }}
+				{{ _self.navbar_link('#', 'IR Headlight', 'lightbulb-o') }}
+				{{ _self.navbar_link('#', 'Info', 'info') }}
+      </ul>
+    </div><!-- /.navbar-collapse -->
+
+	</div>
+</nav>
