@@ -56,6 +56,7 @@ rpc_monitor-*
 .settings
 .buildpath
 www/shm
+www/web/css/
 *.komodoproject
 .DS_Store
 ._.DS_Store
