@@ -128,8 +128,14 @@ function (ko, _) {
 		turnLeft: turnLeft,
 		turnRight: turnRight,
 		stopMoving: stopMoving,
-		toggleIR: toggleIR
+		toggleIR: toggleIR,
+
+		brighten: ko.observable(false),
+		toggleBrighten: function () {
+			viewModel.brighten(!viewModel.brighten());
+		}
 	};
+
 
 	$(window).on('resize', resizeVideoScreen);
 

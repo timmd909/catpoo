@@ -1,9 +1,3 @@
-{% macro navbar_link(href, label, icon) %}
-<li>
-	<a class="btn" href="{{ href }}"><i class="fa fa-{{ icon }}"></i> {{ label }}</a>
-</li>
-{% endmacro %}
-
 <nav class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container-fluid">
 
@@ -25,10 +19,18 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="catpoo-navbar">
       <ul class="nav navbar-nav">
-				{{ _self.navbar_link('#', 'Help', 'question') }}
-				{{ _self.navbar_link('#', 'Panic', 'warning') }}
-				{{ _self.navbar_link('#', 'IR Headlight', 'lightbulb-o') }}
-				{{ _self.navbar_link('#', 'Info', 'info') }}
+				<li>
+					<a class="btn" href="#"><i class="fa fa-question"></i> Help</a>
+				</li>
+				<li>
+					<a class="btn" href="#"><i class="fa fa-warning"></i> Panic</a>
+				</li>
+				<li data-bind="css: { active: brighten }">
+					<a class="btn" href="#" data-bind="click: toggleBrighten"><i class="fa fa-lightbulb-o"></i> Brighten</a>
+				</li>
+				<li>
+					<a class="btn" href="#"><i class="fa fa-info"></i> Info</a>
+				</li>
       </ul>
     </div><!-- /.navbar-collapse -->
 
