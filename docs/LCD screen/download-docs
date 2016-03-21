@@ -1,0 +1,8 @@
+#!/bin/bash
+WGET="wget --continue -t0 -T6"
+
+$WGET https://s3-ap-northeast-1.amazonaws.com/sain-amzn/20/20-011-208/7lcd.gz
+$WGET https://s3-ap-northeast-1.amazonaws.com/sain-amzn/20/20-011-208/9+tft.zip
+$WGET https://s3-ap-northeast-1.amazonaws.com/sain-amzn/20/20-011-208/Touch-linux.rar
+$WGET https://s3-ap-northeast-1.amazonaws.com/sain-amzn/20/20-011-208/windows_7_VISTA_xp_2000.rari
+$WGET https://s3-ap-northeast-1.amazonaws.com/sain-amzn/20/20-011-208/7inch+Touch+Screen+Tutorials.zip

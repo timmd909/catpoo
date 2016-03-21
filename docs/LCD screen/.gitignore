@@ -1,0 +1,4 @@
+*
+!download-docs
+!*.webloc
+!.gitignore
