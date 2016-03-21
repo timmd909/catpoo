@@ -1,6 +1,6 @@
 # Overview
 
-| Device       | Port | I | O | A | D | Description                        |
+| Device       | Pin  | I | O | A | D | Description                        |
 |--------------|------|---|---|---|---|------------------------------------|
 | Arduino      |  A0  | X |   | X |   | Proximity Sensor (front)
 | Arduino      |  A1  | X |   | X |   | Proximity Sensor (left)
@@ -29,8 +29,9 @@
 ## Notes
 
 * Both Raspberry Pi and Arduino's GPIOs run at 3.3v
-* Arduino Nano has total GPIOs
-	* 8 are analog or digital
+* Arduino Micro has 20 total GPIOs
+	* 7 can be used as PWM
+	* 12 as analog
 	* 6 are digital only
 * Raspberry Pi has 26 I/O pins
 	* 4 are for I2C (Assume I'll have some I2C devices)
