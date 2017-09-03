@@ -1,8 +1,0 @@
-- name: Install Gnome
-  apt: name={{ item }}
-  with_items:
-  - gdm3
-  - gnome-desktop-environment
-  - gedit
-  - network-manager
-  - network-manager-gnome
