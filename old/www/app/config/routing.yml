@@ -1,4 +1,0 @@
-timmd909_cat_poo:
-    resource: "@timmd909CatPooBundle/Resources/config/routing.yml"
-    prefix:   /
-
