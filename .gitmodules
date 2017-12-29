@@ -1,3 +1,6 @@
 [submodule "drive"]
 	path = drive
 	url = git@github.com:timmd909/catpoo-drive.git
+[submodule "models"]
+	path = models
+	url = git@github.com:timmd909/catpoo-models.git
