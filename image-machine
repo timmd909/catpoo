@@ -1,0 +1,27 @@
+#!/bin/bash
+#
+# Image only one machine in `hosts`
+#
+
+pushd "`dirname $0`" > /dev/null
+
+if [[ "$1" == "" ]]; then
+  echo "Usage: $0 <hostname>"
+  echo
+  echo "Available hosts:"
+  echo
+  HOSTS="`cat hosts | grep -vE '^(#|\[)' | grep -vE '^$' | cut -d\  -f1 | sort | uniq `"
+  for HOST in $HOSTS ; do
+    echo " * $HOST"
+  done
+  echo
+
+  exit 42
+fi
+
+MACHINE="$1"
+shift
+
+( set -x ; ansible-playbook -i hosts site.yml "--limit=$MACHINE" "$@" )
+
+popd > /dev/null

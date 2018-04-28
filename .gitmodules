@@ -4,3 +4,21 @@
 [submodule "models"]
 	path = models
 	url = git@github.com:timmd909/catpoo-models.git
+[submodule "roles/common"]
+	path = roles/common
+	url = git@github.com:timmd909/izanagi-role-common.git
+[submodule "roles/catpoo"]
+	path = roles/catpoo
+	url = git@github.com:timmd909/izanagi-role-catpoo.git
+[submodule "roles/web-server"]
+	path = roles/web-server
+	url = git@github.com:timmd909/izanagi-role-web-server.git
+[submodule "roles/dns-server"]
+	path = roles/dns-server
+	url = git@github.com:timmd909/izanagi-role-dns-server.git
+[submodule "roles/motion-server"]
+	path = roles/motion-server
+	url = git@github.com:timmd909/izanagi-role-motion-server.git
+[submodule "roles/router"]
+	path = roles/router
+	url = git@github.com:timmd909/izanagi-role-router.git
