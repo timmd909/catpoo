@@ -1,0 +1,59 @@
+---
+
+#
+# Network configuration
+#
+
+# Wireless access point
+wap_ip_octet_1: 10
+wap_ip_octet_2: 13
+wap_ip_octet_3: 37
+wap_ip_octet_4: 1
+
+wap_device: wlan0
+external_wireless_nic: wlan1
+router_internal_nic: wlan0
+router_access_point_nic: wlan0
+router_external_nic: eth0
+
+#
+# Force HDMI
+#
+
+# Possible values: https://www.raspberrypi.org/documentation/configuration/config-txt/video.md
+hdmi_group: 2
+hdmi_mode: 87
+hdmi_cvt: 800 480 60 6 0 0 0
+
+#
+# DNS configuration
+#
+dns_domain: local
+dns_host: catpoo
+
+# IP address of the DNS server
+dns_ip_octet_1: "{{ wap_ip_octet_1 }}"
+dns_ip_octet_2: "{{ wap_ip_octet_2 }}"
+dns_ip_octet_3: "{{ wap_ip_octet_3 }}"
+dns_ip_octet_4: "{{ wap_ip_octet_4 }}"
+
+wireless_ip_octet_1: "{{ wap_ip_octet_1 }}"
+wireless_ip_octet_2: "{{ wap_ip_octet_2 }}"
+wireless_ip_octet_3: "{{ wap_ip_octet_3 }}"
+wireless_ip_octet_4: "{{ wap_ip_octet_4 }}"
+
+dns_network_device: "{{ router_internal_nic }}"
+
+router_ssid: CATPOO
+router_wireless_password: cat-antagonist
+
+#
+# Routing
+#
+router_external_nic: wlan0
+router_internal_nic: "{{ wap_device }}"
+
+#
+# Motion
+#
+motion_stream_quality: 90
