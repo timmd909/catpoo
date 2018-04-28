@@ -22,3 +22,6 @@
 [submodule "roles/router"]
 	path = roles/router
 	url = git@github.com:timmd909/izanagi-role-router.git
+[submodule "web"]
+	path = web
+	url = git@github.com:timmd909/catpoo-web.git
