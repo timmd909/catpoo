@@ -11,10 +11,8 @@ wap_ip_octet_3: 37
 wap_ip_octet_4: 1
 
 wap_device: wlan0
+
 external_wireless_nic: wlan1
-router_internal_nic: wlan0
-router_access_point_nic: wlan0
-router_external_nic: eth0
 
 #
 # Force HDMI
@@ -50,10 +48,13 @@ router_wireless_password: cat-antagonist
 #
 # Routing
 #
-router_external_nic: wlan0
+router_access_point_nic: wlan0
+router_external_nic: eth0
 router_internal_nic: "{{ wap_device }}"
+router_internal_nic: wlan0
 
 #
 # Motion
 #
 motion_stream_quality: 90
+motion_server_localhost: false
