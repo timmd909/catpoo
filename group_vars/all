@@ -1,5 +1,7 @@
 ---
 
+hostname: catpoo
+
 #
 # Network configuration
 #
@@ -52,6 +54,7 @@ router_access_point_nic: wlan0
 router_external_nic: eth0
 router_internal_nic: "{{ wap_device }}"
 router_internal_nic: wlan0
+router_web_ui: false
 
 #
 # Motion
