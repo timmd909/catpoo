@@ -42,6 +42,11 @@ wireless_ip_octet_2: "{{ wap_ip_octet_2 }}"
 wireless_ip_octet_3: "{{ wap_ip_octet_3 }}"
 wireless_ip_octet_4: "{{ wap_ip_octet_4 }}"
 
+internal_ip_octet_1: "{{ wap_ip_octet_1 }}"
+internal_ip_octet_2: "{{ wap_ip_octet_2 }}"
+internal_ip_octet_3: "{{ wap_ip_octet_3 }}"
+internal_ip_octet_4: "{{ wap_ip_octet_4 }}"
+
 dns_network_device: "{{ router_internal_nic }}"
 
 router_ssid: CATPOO
