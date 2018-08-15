@@ -12,3 +12,5 @@ can antagonize and annoy cats or small dogs.
   for Arduinos for controlling all robots.
 * [CATPOO Models](git@github.com:timmd909/catpoo-models.git) - FreeCAD
   models of everything necessary to build a CATPOO.
+
+![Overall architecture](https://github.com/timmd909/catpoo/raw/master/docs/Overall%20Architecture.png)
