@@ -31,3 +31,9 @@
 [submodule "circuits"]
 	path = circuits
 	url = git@github.com:timmd909/catpoo-circuits.git
+[submodule "roles/node"]
+	path = roles/node
+	url = git@github.com:timmd909/izanagi-role-node.git
+[submodule "roles/php"]
+	path = roles/php
+	url = git@github.com:timmd909/izanagi-role-php.git
