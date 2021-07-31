@@ -25,9 +25,6 @@
 [submodule "web"]
 	path = web
 	url = git@github.com:timmd909/catpoo-web.git
-[submodule "controller"]
-	path = controller
-	url = git@github.com:timmd909/catpoo-controller.git
 [submodule "circuits"]
 	path = circuits
 	url = git@github.com:timmd909/catpoo-circuits.git
