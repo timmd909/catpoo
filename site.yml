@@ -21,8 +21,8 @@
 
 - hosts: catpoos
   roles:
-    # - web-server
+    - web-server
     # - dns-server
     # - router
     - motion-server
-    # - catpoo
+    - catpoo
