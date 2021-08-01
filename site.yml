@@ -22,7 +22,7 @@
 - hosts: catpoos
   roles:
     - web-server
-    - dns-server
-    - router
+    # - dns-server
+    # - router
     - motion-server
     - catpoo
