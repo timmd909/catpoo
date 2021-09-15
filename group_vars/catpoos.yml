@@ -3,6 +3,12 @@
 #
 
 motion_server_localhost: true
-motion_server_framerate: 24
-motion_server_image_width: 840
-motion_server_image_height: 480
+motion_server_framerate: 30
+# motion_server_image_width: 840
+# motion_server_image_height: 480
+motion_server_image_width: 960
+motion_server_image_height: 720
+
+motion_server_stream_maxrate: 30
+# motion_server_stream_quality: 90
+# motion_server_stream_limit: 2
