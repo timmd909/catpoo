@@ -1,0 +1,2 @@
+#!/bin/bash
+ffplay -nodisp -autoexit  -af "pan=stereo|c1=c1" $1
